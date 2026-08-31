@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
 import { FAQ_ITEMS } from '@/data/mockData'
@@ -15,7 +15,7 @@ export default function FAQSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#0057FF] font-semibold text-sm mb-3 uppercase tracking-wider"
+            className="text-[#1B4FD8] font-semibold text-sm mb-3 uppercase tracking-wider"
           >
             FAQ
           </motion.p>
@@ -24,7 +24,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl font-bold text-[#0F172A]"
+            className="text-4xl font-bold text-[#0A1628]"
           >
             Frequently Asked
             <span className="gradient-text"> Questions</span>
@@ -41,7 +41,7 @@ export default function FAQSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               className={`border rounded-2xl overflow-hidden transition-all duration-200 ${
-                open === i ? 'border-[#0057FF]/30 shadow-md' : 'border-slate-100 shadow-sm'
+                open === i ? 'border-[#1B4FD8]/30 shadow-md' : 'border-slate-100 shadow-sm'
               }`}
             >
               <button
@@ -50,7 +50,7 @@ export default function FAQSection() {
               >
                 <span className="font-semibold text-slate-900 text-base pr-4">{item.q}</span>
                 <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
-                  open === i ? 'bg-[#0057FF] text-white' : 'bg-slate-100 text-slate-500'
+                  open === i ? 'bg-[#1B4FD8] text-white' : 'bg-slate-100 text-slate-500'
                 }`}>
                   {open === i ? <Minus size={16} /> : <Plus size={16} />}
                 </span>

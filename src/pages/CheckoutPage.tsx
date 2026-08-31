@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
@@ -43,7 +43,7 @@ export default function CheckoutPage() {
               <button
                 onClick={() => i < step && setStep(i)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-                  i === step ? 'bg-[#0057FF] text-white' :
+                  i === step ? 'bg-[#1B4FD8] text-white' :
                   i < step ? 'bg-emerald-500 text-white' :
                   'bg-slate-100 text-slate-400'
                 }`}
@@ -62,7 +62,7 @@ export default function CheckoutPage() {
             {step === 0 && (
               <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
                 <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 mb-5">
-                  <h2 className="font-bold text-slate-900 text-lg mb-5 flex items-center gap-2"><MapPin size={18} className="text-[#0057FF]" /> Shipping Address</h2>
+                  <h2 className="font-bold text-slate-900 text-lg mb-5 flex items-center gap-2"><MapPin size={18} className="text-[#1B4FD8]" /> Shipping Address</h2>
                   <div className="grid grid-cols-2 gap-4">
                     <Input label="First Name" placeholder="John" {...register('firstName')} />
                     <Input label="Last Name" placeholder="Smith" {...register('lastName')} />
@@ -73,7 +73,7 @@ export default function CheckoutPage() {
                     <Input label="Postal Code" placeholder="12345" {...register('postal')} />
                     <div className="col-span-2">
                       <label className="block text-sm font-medium text-slate-700 mb-1.5">Country</label>
-                      <select className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#0057FF] bg-white" {...register('country')}>
+                      <select className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8] bg-white" {...register('country')}>
                         {COUNTRIES.map((c) => <option key={c.id} value={c.code}>{c.flag} {c.name}</option>)}
                       </select>
                     </div>
@@ -88,7 +88,7 @@ export default function CheckoutPage() {
             {step === 1 && (
               <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
                 <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 mb-5">
-                  <h2 className="font-bold text-slate-900 text-lg mb-5 flex items-center gap-2"><CreditCard size={18} className="text-[#0057FF]" /> Payment Details</h2>
+                  <h2 className="font-bold text-slate-900 text-lg mb-5 flex items-center gap-2"><CreditCard size={18} className="text-[#1B4FD8]" /> Payment Details</h2>
                   <div className="space-y-4">
                     <Input label="Card Number" placeholder="1234 5678 9012 3456" {...register('cardNumber')} />
                     <div className="grid grid-cols-2 gap-4">
@@ -115,7 +115,7 @@ export default function CheckoutPage() {
             {step === 2 && (
               <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
                 <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 mb-5">
-                  <h2 className="font-bold text-slate-900 text-lg mb-5 flex items-center gap-2"><Package size={18} className="text-[#0057FF]" /> Order Review</h2>
+                  <h2 className="font-bold text-slate-900 text-lg mb-5 flex items-center gap-2"><Package size={18} className="text-[#1B4FD8]" /> Order Review</h2>
                   <div className="space-y-3">
                     {items.map((item) => (
                       <div key={item.productId} className="flex gap-3 items-center">
@@ -162,7 +162,7 @@ export default function CheckoutPage() {
                 </div>
                 <div className="flex justify-between font-bold text-base pt-2 border-t border-slate-100">
                   <span>Total</span>
-                  <span className="text-[#0057FF]">{formatCurrency(grandTotal)}</span>
+                  <span className="text-[#1B4FD8]">{formatCurrency(grandTotal)}</span>
                 </div>
               </div>
             </div>

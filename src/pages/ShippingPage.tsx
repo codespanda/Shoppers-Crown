@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Globe, Package, Zap, Shield, Calculator, Truck, CheckCircle2, ArrowRight, Clock, Star } from 'lucide-react'
 import Button from '@/components/ui/Button'
@@ -8,7 +8,7 @@ const SERVICES = [
     icon: <Globe size={28} />,
     title: 'International Forwarding',
     desc: 'Shop from any US store and we\'ll forward your packages to 220+ countries at the best rates.',
-    color: 'text-[#0057FF]', bg: 'bg-blue-50',
+    color: 'text-[#1B4FD8]', bg: 'bg-blue-50',
     features: ['220+ destination countries', 'Multiple carrier options', 'Real-time tracking', 'Customs paperwork included'],
     link: '/countries', linkLabel: 'View All Countries',
   },
@@ -32,17 +32,17 @@ const SERVICES = [
     icon: <Zap size={28} />,
     title: 'Express Shipping',
     desc: 'Need it fast? Our Express service delivers to most countries in 3–7 business days.',
-    color: 'text-[#FFB800]', bg: 'bg-amber-50',
+    color: 'text-[#F59E0B]', bg: 'bg-amber-50',
     features: ['3–7 business days', 'Priority handling', 'Saturday delivery', 'Door-to-door service'],
     link: '/calculator', linkLabel: 'Calculate Express Rate',
   },
 ]
 
 const HOW_IT_WORKS = [
-  { step: '01', title: 'Get Your Free US Address', desc: 'Sign up and instantly receive a free US shipping address in Portland, Oregon — tax-free.', icon: <Star size={22} />, color: 'bg-[#0057FF]' },
-  { step: '02', title: 'Shop US Stores',           desc: 'Shop from Amazon, Apple, Nike, Sephora and 50,000+ more US stores using your MyUS address.', icon: <Package size={22} />, color: 'bg-[#10B981]' },
+  { step: '01', title: 'Get Your Free US Address', desc: 'Sign up and instantly receive a free US shipping address in Portland, Oregon — tax-free.', icon: <Star size={22} />, color: 'bg-[#1B4FD8]' },
+  { step: '02', title: 'Shop US Stores',           desc: 'Shop from Amazon, Apple, Nike, Sephora and 50,000+ more US stores using your Shoppers Crown address.', icon: <Package size={22} />, color: 'bg-[#10B981]' },
   { step: '03', title: 'We Receive & Inspect',     desc: 'Packages arrive at our secure Portland warehouse. We inspect, photograph, and store them for you.', icon: <CheckCircle2 size={22} />, color: 'bg-violet-500' },
-  { step: '04', title: 'Choose How to Ship',       desc: 'Select your shipping speed, carrier, and add-ons. We handle customs paperwork automatically.', icon: <Truck size={22} />, color: 'bg-[#FFB800]' },
+  { step: '04', title: 'Choose How to Ship',       desc: 'Select your shipping speed, carrier, and add-ons. We handle customs paperwork automatically.', icon: <Truck size={22} />, color: 'bg-[#F59E0B]' },
   { step: '05', title: 'Delivered to Your Door',   desc: 'Track your package in real-time as it travels from our warehouse to your front door.', icon: <Globe size={22} />, color: 'bg-rose-500' },
 ]
 
@@ -57,7 +57,7 @@ export default function ShippingPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-[#0F172A] to-[#1E3A8A] py-20 px-4">
+      <div className="bg-gradient-to-br from-[#0A1628] to-[#1E3A8A] py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-14">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm mb-6">
@@ -93,14 +93,14 @@ export default function ShippingPage() {
 
       {/* Services */}
       <div className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-[#0F172A] text-center mb-3">Our Shipping Services</h2>
+        <h2 className="text-3xl font-bold text-[#0A1628] text-center mb-3">Our Shipping Services</h2>
         <p className="text-slate-500 text-center mb-10">Everything you need to ship internationally with confidence.</p>
         <div className="grid md:grid-cols-2 gap-6">
           {SERVICES.map((svc, i) => (
             <motion.div key={svc.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
               className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 hover:shadow-md transition-shadow">
               <div className={`w-14 h-14 ${svc.bg} rounded-2xl flex items-center justify-center ${svc.color} mb-5`}>{svc.icon}</div>
-              <h3 className="text-xl font-bold text-[#0F172A] mb-2">{svc.title}</h3>
+              <h3 className="text-xl font-bold text-[#0A1628] mb-2">{svc.title}</h3>
               <p className="text-slate-500 text-sm mb-4">{svc.desc}</p>
               <div className="space-y-2 mb-5">
                 {svc.features.map((f) => (
@@ -120,7 +120,7 @@ export default function ShippingPage() {
       {/* How it works */}
       <div className="bg-white py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#0F172A] text-center mb-3">How It Works</h2>
+          <h2 className="text-3xl font-bold text-[#0A1628] text-center mb-3">How It Works</h2>
           <p className="text-slate-500 text-center mb-10">From US store to your doorstep in 5 simple steps.</p>
           <div className="relative">
             <div className="hidden md:block absolute left-8 top-5 bottom-5 w-0.5 bg-slate-100" />
@@ -145,7 +145,7 @@ export default function ShippingPage() {
 
       {/* Carriers */}
       <div className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-[#0F172A] text-center mb-3">Our Carrier Partners</h2>
+        <h2 className="text-3xl font-bold text-[#0A1628] text-center mb-3">Our Carrier Partners</h2>
         <p className="text-slate-500 text-center mb-10">We work with the world's leading carriers to give you the best rates and reliability.</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {CARRIERS.map((c, i) => (
@@ -163,10 +163,10 @@ export default function ShippingPage() {
       </div>
 
       {/* CTA */}
-      <div className="bg-gradient-to-br from-[#0057FF] to-[#00C2FF] py-16 px-4 text-center">
+      <div className="bg-gradient-to-br from-[#1B4FD8] to-[#38BDF8] py-16 px-4 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold text-white mb-3">Start Shipping Today</h2>
-          <p className="text-white/70 mb-8">Join 500,000+ shoppers who use MyUS to shop from the US.</p>
+          <p className="text-white/70 mb-8">Join 500,000+ shoppers who use Shoppers Crown to shop from the US.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/signup"><Button size="lg" variant="accent" iconRight={<ArrowRight size={18} />}>Get Free US Address</Button></Link>
             <Link to="/calculator"><Button size="lg" className="bg-white/20 text-white border border-white/30 hover:bg-white/30">Calculate Rates</Button></Link>

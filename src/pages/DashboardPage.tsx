@@ -1,8 +1,8 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
 import {
-  Package, Truck, MapPin, CreditCard, Bell, Settings, LogOut,
+  Package, Truck, MapPin, CreditCard, Bell, Settings, LogOut, ShoppingCart,
   TrendingUp, ShoppingBag, DollarSign, Star, ChevronRight,
   LayoutDashboard, FileText, HeadphonesIcon, Gift, Users,
   CheckCircle2, Clock, AlertCircle, Plus, Copy, ExternalLink,
@@ -53,7 +53,7 @@ export default function DashboardPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <p className="text-slate-600 mb-4">Please sign in to view your dashboard</p>
-          <Link to="/login" className="text-[#0057FF] font-semibold hover:underline">Sign In</Link>
+          <Link to="/login" className="text-[#1B4FD8] font-semibold hover:underline">Sign In</Link>
         </div>
       </div>
     )
@@ -62,87 +62,92 @@ export default function DashboardPage() {
   const handleLogout = () => { logout(); navigate('/') }
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex">
-      {/* Sidebar */}
-      <aside className="hidden lg:flex flex-col w-64 bg-white border-r border-slate-100 fixed top-0 left-0 h-full z-40 pt-16">
-        {/* User info */}
-        <div className="p-5 border-b border-slate-100">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold">{user.name.charAt(0)}</span>
-            </div>
-            <div className="min-w-0">
-              <p className="font-semibold text-slate-900 text-sm truncate">{user.name}</p>
-              <div className="flex items-center gap-1.5">
-                <Star size={11} className="text-[#FFB800] fill-[#FFB800]" />
-                <span className="text-xs text-slate-400 capitalize">{user.tier} member</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen bg-[#F5F7FA] flex overflow-hidden" style={{ height: '100vh' }}>
 
-        {/* Nav items */}
-        <nav className="flex-1 overflow-y-auto p-3">
-          {SIDEBAR_ITEMS.map((item) => (
+      <div className="flex flex-1 overflow-hidden">
+        {/* Sidebar */}
+        <aside className="hidden lg:flex flex-col w-64 bg-white border-r border-slate-200 h-full flex-shrink-0">
+          {/* Brand */}
+          <div className="px-6 py-6 border-b border-slate-100 flex flex-col items-center text-center gap-4">
+            <Link to="/" className="flex items-center gap-2.5 whitespace-nowrap">
+              <div className="w-9 h-9 gradient-primary rounded-xl flex items-center justify-center shadow-glow flex-shrink-0">
+                <Package size={18} className="text-white" />
+              </div>
+              <span className="text-lg font-bold text-[#0A1628]">Shoppers<span className="gradient-text"> Crown</span></span>
+            </Link>
+            <div className="w-14 h-14 gradient-primary rounded-full flex items-center justify-center">
+              <span className="text-white text-2xl font-bold">{user.name.charAt(0)}</span>
+            </div>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-600">
+              <Star size={11} className="fill-amber-500 text-amber-500" /> Premium Member
+            </span>
+          </div>
+
+          {/* Nav items */}
+          <nav className="flex-1 overflow-y-auto p-3">
+            {SIDEBAR_ITEMS.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveTab(item.id)}
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all mb-1 ${
+                  activeTab === item.id
+                    ? 'bg-[#1B4FD8] text-white shadow-md'
+                    : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+              >
+                {item.icon}
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Logout */}
+          <div className="p-3 border-t border-slate-100">
             <button
-              key={item.id}
-              onClick={() => setActiveTab(item.id)}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all mb-1 ${
-                activeTab === item.id
-                  ? 'bg-[#0057FF] text-white shadow-md'
-                  : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'
-              }`}
+              onClick={handleLogout}
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 transition-colors"
             >
-              {item.icon}
-              {item.label}
+              <LogOut size={18} />
+              Sign Out
             </button>
-          ))}
-        </nav>
-
-        {/* Logout */}
-        <div className="p-3 border-t border-slate-100">
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 transition-colors"
-          >
-            <LogOut size={18} />
-            Sign Out
-          </button>
-        </div>
-      </aside>
-
-      {/* Main content */}
-      <main className="flex-1 lg:ml-64 p-6">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-2xl font-bold text-[#0F172A] capitalize">{activeTab === 'overview' ? `Welcome back, ${user.name.split(' ')[0]}!` : activeTab}</h1>
-            <p className="text-slate-500 text-sm mt-1">
-              {activeTab === 'overview' ? "Here's what's happening with your account" : `Manage your ${activeTab}`}
-            </p>
           </div>
-          <div className="flex items-center gap-3">
-            <button className="relative p-2.5 rounded-xl bg-white border border-slate-100 shadow-sm text-slate-500 hover:text-slate-800">
-              <Bell size={18} />
-              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
-            </button>
-            <div className="flex items-center gap-2 bg-white border border-slate-100 shadow-sm rounded-xl px-3 py-2">
-              <div className="w-7 h-7 gradient-primary rounded-full flex items-center justify-center">
-                <span className="text-white text-xs font-bold">{user.name.charAt(0)}</span>
+        </aside>
+
+        {/* Main content */}
+        <main className="flex-1 flex flex-col overflow-hidden">
+          {/* Top bar — only over main area */}
+          <header className="h-16 bg-white border-b border-slate-100 shadow-sm flex items-center px-6 justify-end flex-shrink-0">
+            <div className="flex items-center gap-3">
+              <button className="relative p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-slate-500 hover:text-slate-800 transition-colors">
+                <Bell size={18} />
+                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
+              </button>
+              <Link to="/cart" className="relative p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-slate-500 hover:text-slate-800 transition-colors">
+                <ShoppingCart size={18} />
+              </Link>
+              <div className="w-9 h-9 gradient-primary rounded-full flex items-center justify-center cursor-pointer">
+                <span className="text-white text-sm font-bold">{user.name.charAt(0)}</span>
               </div>
-              <span className="text-sm font-medium text-slate-700">{user.name.split(' ')[0]}</span>
             </div>
-          </div>
-        </div>
+          </header>
+          <div className="flex-1 overflow-y-auto p-6">
+            <div className="mb-6">
+              <h1 className="text-2xl font-bold text-[#0A1628] capitalize">
+                {activeTab === 'overview' ? 'Welcome back!' : activeTab}
+              </h1>
+              <p className="text-slate-500 text-sm mt-1">
+                {activeTab === 'overview' ? "Here's what's happening with your account" : `Manage your ${activeTab}`}
+              </p>
+            </div>
 
         {activeTab === 'overview' && (
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
             {/* Stats */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
               {[
-                { label: 'Total Orders', value: '42', change: '+8%', icon: <ShoppingBag size={20} />, color: 'text-[#0057FF]', bg: 'bg-blue-50' },
+                { label: 'Total Orders', value: '42', change: '+8%', icon: <ShoppingBag size={20} />, color: 'text-[#1B4FD8]', bg: 'bg-blue-50' },
                 { label: 'Packages Shipped', value: user.packagesShipped.toString(), change: '+12%', icon: <Package size={20} />, color: 'text-[#10B981]', bg: 'bg-emerald-50' },
-                { label: 'Total Saved', value: formatCurrency(user.totalSaved), change: '+$120', icon: <DollarSign size={20} />, color: 'text-[#FFB800]', bg: 'bg-amber-50' },
+                { label: 'Total Saved', value: formatCurrency(user.totalSaved), change: '+$120', icon: <DollarSign size={20} />, color: 'text-[#F59E0B]', bg: 'bg-amber-50' },
                 { label: 'In Warehouse', value: '3', change: 'Active', icon: <Truck size={20} />, color: 'text-[#8B5CF6]', bg: 'bg-violet-50' },
               ].map((stat, i) => (
                 <motion.div
@@ -158,7 +163,7 @@ export default function DashboardPage() {
                       {stat.icon}
                     </div>
                   </div>
-                  <p className="text-2xl font-bold text-[#0F172A]">{stat.value}</p>
+                  <p className="text-2xl font-bold text-[#0A1628]">{stat.value}</p>
                   <p className="text-xs text-emerald-500 font-medium mt-1 flex items-center gap-1">
                     <TrendingUp size={11} /> {stat.change} this month
                   </p>
@@ -167,7 +172,7 @@ export default function DashboardPage() {
             </div>
 
             {/* US Address */}
-            <div className="bg-gradient-to-br from-[#0057FF] to-[#00C2FF] rounded-2xl p-6 mb-8 text-white">
+            <div className="bg-gradient-to-br from-[#1B4FD8] to-[#38BDF8] rounded-2xl p-6 mb-8 text-white">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-white/70 text-sm mb-1 flex items-center gap-1.5"><MapPin size={14} /> Your Free US Address</p>
@@ -184,7 +189,7 @@ export default function DashboardPage() {
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm mb-8">
               <div className="flex items-center justify-between p-5 border-b border-slate-100">
                 <h3 className="font-bold text-slate-900">Recent Orders</h3>
-                <button onClick={() => setActiveTab('orders')} className="text-[#0057FF] text-sm font-medium flex items-center gap-1 hover:gap-2 transition-all">
+                <button onClick={() => setActiveTab('orders')} className="text-[#1B4FD8] text-sm font-medium flex items-center gap-1 hover:gap-2 transition-all">
                   View All <ChevronRight size={14} />
                 </button>
               </div>
@@ -215,7 +220,7 @@ export default function DashboardPage() {
                 <Badge variant="info">{TRACKING_EVENTS.carrier}</Badge>
               </div>
               <div className="flex items-center gap-3 mb-4 p-3 bg-slate-50 rounded-xl">
-                <Package size={18} className="text-[#0057FF]" />
+                <Package size={18} className="text-[#1B4FD8]" />
                 <div>
                   <p className="text-sm font-semibold text-slate-900">{TRACKING_EVENTS.trackingNumber}</p>
                   <p className="text-xs text-slate-500">{TRACKING_EVENTS.origin} → {TRACKING_EVENTS.destination}</p>
@@ -225,7 +230,7 @@ export default function DashboardPage() {
               <div className="space-y-3">
                 {TRACKING_EVENTS.events.slice(-3).map((ev, i) => (
                   <div key={ev.id} className="flex gap-3 items-start">
-                    <div className={`w-2.5 h-2.5 rounded-full mt-1.5 flex-shrink-0 ${i === 0 ? 'bg-[#0057FF]' : 'bg-slate-200'}`} />
+                    <div className={`w-2.5 h-2.5 rounded-full mt-1.5 flex-shrink-0 ${i === 0 ? 'bg-[#1B4FD8]' : 'bg-slate-200'}`} />
                     <div>
                       <p className="text-sm font-medium text-slate-800">{ev.description}</p>
                       <p className="text-xs text-slate-400">{ev.location} · {ev.timestamp}</p>
@@ -247,7 +252,9 @@ export default function DashboardPage() {
         {activeTab === 'referral' && <ReferralTab />}
         {activeTab === 'support' && <SupportTab />}
         {activeTab === 'settings' && <SettingsTab user={user} />}
-      </main>
+          </div>
+        </main>
+      </div>
     </div>
   )
 }
@@ -270,7 +277,7 @@ function OrdersTab() {
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
       <div className="flex flex-wrap gap-2 mb-6">
         {['all', 'processing', 'shipped', 'delivered', 'cancelled'].map((f) => (
-          <button key={f} onClick={() => setFilter(f)} className={`px-4 py-1.5 rounded-full text-sm font-medium capitalize transition-all ${filter === f ? 'bg-[#0057FF] text-white' : 'bg-white border border-slate-200 text-slate-500 hover:border-[#0057FF] hover:text-[#0057FF]'}`}>{f}</button>
+          <button key={f} onClick={() => setFilter(f)} className={`px-4 py-1.5 rounded-full text-sm font-medium capitalize transition-all ${filter === f ? 'bg-[#1B4FD8] text-white' : 'bg-white border border-slate-200 text-slate-500 hover:border-[#1B4FD8] hover:text-[#1B4FD8]'}`}>{f}</button>
         ))}
       </div>
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
@@ -300,9 +307,9 @@ function OrdersTab() {
 }
 
 const SHIPMENTS = [
-  { id: 'MYUS-2026-789456', from: 'Portland, OR', to: 'Dubai, UAE', status: 'in-transit', carrier: 'DHL Express', est: '2026-07-05', weight: '2.3 kg' },
-  { id: 'MYUS-2026-654321', from: 'Portland, OR', to: 'Mumbai, India', status: 'delivered', carrier: 'FedEx', est: '2026-06-20', weight: '1.1 kg' },
-  { id: 'MYUS-2026-112233', from: 'Portland, OR', to: 'London, UK', status: 'processing', carrier: 'UPS', est: '2026-07-10', weight: '0.5 kg' },
+  { id: 'Shoppers Crown-2026-789456', from: 'Portland, OR', to: 'Dubai, UAE', status: 'in-transit', carrier: 'DHL Express', est: '2026-07-05', weight: '2.3 kg' },
+  { id: 'Shoppers Crown-2026-654321', from: 'Portland, OR', to: 'Mumbai, India', status: 'delivered', carrier: 'FedEx', est: '2026-06-20', weight: '1.1 kg' },
+  { id: 'Shoppers Crown-2026-112233', from: 'Portland, OR', to: 'London, UK', status: 'processing', carrier: 'UPS', est: '2026-07-10', weight: '0.5 kg' },
 ]
 
 function ShipmentsTab() {
@@ -312,7 +319,7 @@ function ShipmentsTab() {
         <div key={s.id} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${s.status === 'delivered' ? 'bg-emerald-50 text-emerald-500' : s.status === 'in-transit' ? 'bg-blue-50 text-[#0057FF]' : 'bg-amber-50 text-amber-500'}`}>
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${s.status === 'delivered' ? 'bg-emerald-50 text-emerald-500' : s.status === 'in-transit' ? 'bg-blue-50 text-[#1B4FD8]' : 'bg-amber-50 text-amber-500'}`}>
                 <Truck size={18} />
               </div>
               <div>
@@ -342,7 +349,7 @@ function TrackingTab() {
       <div className="flex gap-3 mb-6">
         <div className="flex-1 relative">
           <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-          <input placeholder="Enter tracking number..." className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#0057FF]" />
+          <input placeholder="Enter tracking number..." className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8]" />
         </div>
         <Button onClick={() => setLoaded(true)}>Track</Button>
         <Button variant="outline" onClick={() => setLoaded(true)}>Demo</Button>
@@ -352,7 +359,7 @@ function TrackingTab() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <p className="text-xs text-slate-400 mb-1">Tracking Number</p>
-              <p className="font-bold text-[#0F172A] font-mono">{TRACKING_EVENTS.trackingNumber}</p>
+              <p className="font-bold text-[#0A1628] font-mono">{TRACKING_EVENTS.trackingNumber}</p>
             </div>
             <Badge variant="warning">In Transit</Badge>
           </div>
@@ -365,7 +372,7 @@ function TrackingTab() {
             <div className="flex justify-between mb-3">
               {progressSteps.map((step, i) => (
                 <div key={step} className="flex flex-col items-center gap-1">
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${i < currentStep ? 'bg-[#0057FF] text-white' : i === currentStep ? 'bg-[#0057FF] text-white ring-4 ring-[#0057FF]/20' : 'bg-slate-100 text-slate-400'}`}>
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${i < currentStep ? 'bg-[#1B4FD8] text-white' : i === currentStep ? 'bg-[#1B4FD8] text-white ring-4 ring-[#1B4FD8]/20' : 'bg-slate-100 text-slate-400'}`}>
                     {i < currentStep ? <CheckCircle2 size={13} /> : i + 1}
                   </div>
                   <span className="hidden md:block text-xs text-slate-400 text-center max-w-[55px]">{step}</span>
@@ -373,13 +380,13 @@ function TrackingTab() {
               ))}
             </div>
             <div className="absolute top-3.5 left-0 right-0 h-0.5 bg-slate-100 -z-0">
-              <div className="h-full bg-[#0057FF]" style={{ width: `${(currentStep / (progressSteps.length - 1)) * 100}%` }} />
+              <div className="h-full bg-[#1B4FD8]" style={{ width: `${(currentStep / (progressSteps.length - 1)) * 100}%` }} />
             </div>
           </div>
           <div className="mt-6 space-y-3 border-t border-slate-50 pt-5">
             {[...TRACKING_EVENTS.events].reverse().map((ev, i) => (
               <div key={ev.id} className="flex gap-3">
-                <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${i === 0 ? 'bg-[#0057FF] text-white' : 'bg-slate-100 text-slate-400'}`}><Package size={14} /></div>
+                <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${i === 0 ? 'bg-[#1B4FD8] text-white' : 'bg-slate-100 text-slate-400'}`}><Package size={14} /></div>
                 <div><p className="text-sm font-medium text-slate-800">{ev.description}</p><p className="text-xs text-slate-400">{ev.location} · {ev.timestamp}</p></div>
               </div>
             ))}
@@ -412,7 +419,7 @@ function WarehouseTab() {
       <div className="space-y-4">
         {WAREHOUSE_ITEMS.map((pkg) => (
           <div key={pkg.id} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 flex items-center gap-4">
-            <input type="checkbox" className="accent-[#0057FF] w-4 h-4 rounded flex-shrink-0" />
+            <input type="checkbox" className="accent-[#1B4FD8] w-4 h-4 rounded flex-shrink-0" />
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${pkg.status === 'ready' ? 'bg-emerald-50 text-emerald-500' : 'bg-amber-50 text-amber-500'}`}>
               <Package size={18} />
             </div>
@@ -428,7 +435,7 @@ function WarehouseTab() {
           </div>
         ))}
       </div>
-      <div className="mt-5 p-4 bg-blue-50 rounded-2xl text-sm text-[#0057FF]">
+      <div className="mt-5 p-4 bg-blue-50 rounded-2xl text-sm text-[#1B4FD8]">
         <p className="font-semibold mb-0.5">Storage Policy</p>
         <p className="text-blue-600/80">Premium members: packages stored free for 60 days. After that, $2/package/day applies.</p>
       </div>
@@ -462,7 +469,7 @@ function InvoicesTab() {
               <p className="text-slate-700 text-sm md:col-span-2">{inv.desc}</p>
               <div className="flex items-center justify-between md:justify-start gap-3">
                 <p className="font-semibold text-slate-900">{formatCurrency(inv.amount)}</p>
-                <button className="text-[#0057FF] hover:text-blue-700 p-1 rounded-lg hover:bg-blue-50 transition-colors"><ExternalLink size={14} /></button>
+                <button className="text-[#1B4FD8] hover:text-blue-700 p-1 rounded-lg hover:bg-blue-50 transition-colors"><ExternalLink size={14} /></button>
               </div>
             </div>
           ))}
@@ -481,11 +488,11 @@ function PaymentTab() {
         <div>
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-bold text-slate-900">Saved Cards</h3>
-            <button onClick={() => setAdding(!adding)} className="flex items-center gap-1.5 text-sm text-[#0057FF] font-medium hover:underline"><Plus size={14} /> Add Card</button>
+            <button onClick={() => setAdding(!adding)} className="flex items-center gap-1.5 text-sm text-[#1B4FD8] font-medium hover:underline"><Plus size={14} /> Add Card</button>
           </div>
           <div className="space-y-3">
             {[
-              { brand: 'Visa', last4: '4242', exp: '12/28', color: 'from-[#0057FF] to-[#00C2FF]', default: true },
+              { brand: 'Visa', last4: '4242', exp: '12/28', color: 'from-[#1B4FD8] to-[#38BDF8]', default: true },
               { brand: 'Mastercard', last4: '8888', exp: '09/27', color: 'from-slate-700 to-slate-900', default: false },
             ].map((card) => (
               <div key={card.last4} className={`bg-gradient-to-br ${card.color} rounded-2xl p-5 text-white relative overflow-hidden`}>
@@ -518,12 +525,12 @@ function PaymentTab() {
           <h3 className="font-bold text-slate-900 mb-4">Billing Summary</h3>
           <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 space-y-4">
             <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-xl">
-              <Zap size={18} className="text-[#0057FF]" />
+              <Zap size={18} className="text-[#1B4FD8]" />
               <div className="flex-1">
                 <p className="text-sm font-semibold text-slate-900">Premium Plan</p>
                 <p className="text-xs text-slate-400">Renews on July 1, 2026</p>
               </div>
-              <span className="font-bold text-[#0057FF]">$9.99/mo</span>
+              <span className="font-bold text-[#1B4FD8]">$9.99/mo</span>
             </div>
             <div className="space-y-2 text-sm">
               {[['June 2026', '$9.99'], ['May 2026', '$9.99'], ['Apr 2026', '$9.99']].map(([month, amt]) => (
@@ -549,7 +556,7 @@ function RewardsTab() {
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
       {/* Points card */}
-      <div className="bg-gradient-to-br from-[#FFB800] to-[#FF7A00] rounded-3xl p-6 text-white mb-6">
+      <div className="bg-gradient-to-br from-[#F59E0B] to-[#FF7A00] rounded-3xl p-6 text-white mb-6">
         <div className="flex items-center justify-between mb-4">
           <div>
             <p className="text-white/70 text-sm mb-1">Your Points Balance</p>
@@ -572,14 +579,14 @@ function RewardsTab() {
       <h3 className="font-bold text-slate-900 mb-4">Earn More Points</h3>
       <div className="grid md:grid-cols-3 gap-4 mb-6">
         {[
-          { label: 'Every $1 spent on shipping', pts: '+1 pt', icon: <Truck size={18} />, color: 'text-[#0057FF] bg-blue-50' },
+          { label: 'Every $1 spent on shipping', pts: '+1 pt', icon: <Truck size={18} />, color: 'text-[#1B4FD8] bg-blue-50' },
           { label: 'Refer a friend', pts: '+500 pts', icon: <Users size={18} />, color: 'text-[#10B981] bg-emerald-50' },
-          { label: 'Write a review', pts: '+50 pts', icon: <Star size={18} />, color: 'text-[#FFB800] bg-amber-50' },
+          { label: 'Write a review', pts: '+50 pts', icon: <Star size={18} />, color: 'text-[#F59E0B] bg-amber-50' },
         ].map((item) => (
           <div key={item.label} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${item.color}`}>{item.icon}</div>
             <p className="text-sm text-slate-600 mb-1">{item.label}</p>
-            <p className="font-bold text-[#0057FF]">{item.pts}</p>
+            <p className="font-bold text-[#1B4FD8]">{item.pts}</p>
           </div>
         ))}
       </div>
@@ -610,12 +617,12 @@ function RewardsTab() {
 
 function ReferralTab() {
   const [copied, setCopied] = useState(false)
-  const code = 'MYUS-ALEX2026'
+  const code = 'Shoppers Crown-ALEX2026'
   const copyCode = () => { navigator.clipboard.writeText(code); setCopied(true); setTimeout(() => setCopied(false), 2000) }
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
       {/* Referral card */}
-      <div className="bg-gradient-to-br from-[#0057FF] to-[#00C2FF] rounded-3xl p-8 text-white text-center mb-8">
+      <div className="bg-gradient-to-br from-[#1B4FD8] to-[#38BDF8] rounded-3xl p-8 text-white text-center mb-8">
         <Users size={40} className="mx-auto mb-3 text-white/80" />
         <h3 className="text-2xl font-bold mb-2">Refer Friends, Earn Rewards</h3>
         <p className="text-white/70 mb-6">Earn 500 points for every friend who signs up with your code.</p>
@@ -631,7 +638,7 @@ function ReferralTab() {
       <div className="grid grid-cols-3 gap-4 mb-8">
         {[['Friends Referred', '7'], ['Pending Earnings', '1,500 pts'], ['Total Earned', '3,500 pts']].map(([l, v]) => (
           <div key={l} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 text-center">
-            <p className="text-2xl font-bold text-[#0F172A] mb-1">{v}</p>
+            <p className="text-2xl font-bold text-[#0A1628] mb-1">{v}</p>
             <p className="text-slate-400 text-xs">{l}</p>
           </div>
         ))}
@@ -668,7 +675,7 @@ function SupportTab() {
       {/* Contact options */}
       <div className="grid md:grid-cols-3 gap-4 mb-8">
         {[
-          { icon: <MessageCircle size={20} />, title: 'Live Chat', sub: 'Online now · ~2 min wait', color: 'text-[#0057FF] bg-blue-50' },
+          { icon: <MessageCircle size={20} />, title: 'Live Chat', sub: 'Online now · ~2 min wait', color: 'text-[#1B4FD8] bg-blue-50' },
           { icon: <Mail size={20} />, title: 'Email Support', sub: 'Reply within 4 hours', color: 'text-violet-500 bg-violet-50' },
           { icon: <Phone size={20} />, title: 'Phone Support', sub: 'Premium & Business only', color: 'text-[#10B981] bg-emerald-50' },
         ].map((c) => (
@@ -693,14 +700,14 @@ function SupportTab() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-xl">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Topic</label>
-              <select className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#0057FF] bg-white" {...register('topic')}>
+              <select className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8] bg-white" {...register('topic')}>
                 <option>Shipping Issue</option><option>Package Damage</option><option>Billing Question</option><option>Account Problem</option><option>Other</option>
               </select>
             </div>
             <Input label="Subject" placeholder="Brief description of your issue" {...register('subject')} />
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Details</label>
-              <textarea rows={4} placeholder="Describe your issue in detail..." className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#0057FF] resize-none" {...register('details')} />
+              <textarea rows={4} placeholder="Describe your issue in detail..." className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8] resize-none" {...register('details')} />
             </div>
             <Button type="submit" loading={isSubmitting}>Submit Ticket</Button>
           </form>
@@ -720,13 +727,19 @@ function SettingsTab({ user }: { user: NonNullable<ReturnType<typeof useAuth>['u
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 mb-5">
         <h3 className="font-bold text-slate-900 mb-5">Profile Information</h3>
         <div className="flex items-center gap-4 mb-6">
-          <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
-            {user.name.charAt(0)}
+          <div className="relative group flex-shrink-0">
+            <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center text-white text-2xl font-bold">
+              {user.name.charAt(0)}
+            </div>
+            <label className="absolute inset-0 rounded-2xl bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer">
+              <input type="file" accept="image/*" className="hidden" onChange={() => {}} />
+              <span className="text-white text-xs font-medium text-center leading-tight">Change<br/>Photo</span>
+            </label>
           </div>
           <div>
             <p className="font-semibold text-slate-900">{user.name}</p>
             <p className="text-slate-400 text-sm">{user.email}</p>
-            <span className="inline-flex items-center gap-1 text-xs text-[#FFB800] font-medium mt-1"><Star size={11} className="fill-[#FFB800]" />{user.tier} member</span>
+            <span className="inline-flex items-center gap-1 text-xs text-[#F59E0B] font-medium mt-1"><Star size={11} className="fill-[#F59E0B]" /> Premium Member</span>
           </div>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -737,7 +750,7 @@ function SettingsTab({ user }: { user: NonNullable<ReturnType<typeof useAuth>['u
           <Input label="Phone Number" placeholder="+1 (555) 000-0000" {...register('phone')} />
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1.5">Default Country</label>
-            <select className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#0057FF] bg-white" {...register('country')}>
+            <select className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8] bg-white" {...register('country')}>
               <option>United Arab Emirates</option><option>India</option><option>United Kingdom</option><option>Saudi Arabia</option><option>Germany</option>
             </select>
           </div>
@@ -771,7 +784,7 @@ function SettingsTab({ user }: { user: NonNullable<ReturnType<typeof useAuth>['u
           ].map(([label, def]) => (
             <div key={label as string} className="flex items-center justify-between">
               <span className="text-sm text-slate-700">{label as string}</span>
-              <input type="checkbox" defaultChecked={def as boolean} className="accent-[#0057FF] w-4 h-4 rounded" />
+              <input type="checkbox" defaultChecked={def as boolean} className="accent-[#1B4FD8] w-4 h-4 rounded" />
             </div>
           ))}
         </div>

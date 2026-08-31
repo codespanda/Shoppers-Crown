@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Package, Globe, Zap, Shield, Star, CheckCircle2 } from 'lucide-react'
 import Button from '@/components/ui/Button'
@@ -23,17 +23,17 @@ export default function Hero() {
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#0057FF]/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#1B4FD8]/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#00C2FF]/20 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#38BDF8]/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ scale: [1, 1.3, 1], opacity: [0.15, 0.3, 0.15] }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
-          className="absolute top-1/2 right-1/3 w-64 h-64 bg-[#FFB800]/10 rounded-full blur-3xl"
+          className="absolute top-1/2 right-1/3 w-64 h-64 bg-[#F59E0B]/10 rounded-full blur-3xl"
         />
 
         {/* Grid pattern */}
@@ -54,7 +54,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm mb-8"
             >
               <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-              <Star size={14} className="text-[#FFB800]" />
+              <Star size={14} className="text-[#F59E0B]" />
               Trusted by 5M+ shoppers worldwide
             </motion.div>
 
@@ -66,9 +66,9 @@ export default function Hero() {
               className="text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08] tracking-tight mb-6"
             >
               Shop From
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0057FF] via-[#00C2FF] to-[#00E5FF]"> Thousands</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#1B4FD8] via-[#38BDF8] to-[#00E5FF]"> Thousands</span>
               of US Stores &
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#FFB800] to-[#FF8C00]"> Ship Worldwide</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#F59E0B] to-[#FF8C00]"> Ship Worldwide</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -134,7 +134,7 @@ export default function Hero() {
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-                  className="absolute inset-0 rounded-full border border-[#0057FF]/20"
+                  className="absolute inset-0 rounded-full border border-[#1B4FD8]/20"
                   style={{
                     background: 'radial-gradient(circle at 40% 40%, rgba(0,87,255,0.15) 0%, transparent 60%)',
                   }}
@@ -142,7 +142,7 @@ export default function Hero() {
                 <motion.div
                   animate={{ rotate: -360 }}
                   transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-                  className="absolute inset-8 rounded-full border border-[#00C2FF]/15"
+                  className="absolute inset-8 rounded-full border border-[#38BDF8]/15"
                 />
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -208,7 +208,7 @@ export default function Hero() {
                   </div>
                   <div>
                     <p className="text-white text-xs font-medium">{card.label}</p>
-                    <p className="text-[#00C2FF] text-sm font-bold">{card.price}</p>
+                    <p className="text-[#38BDF8] text-sm font-bold">{card.price}</p>
                   </div>
                 </div>
               </motion.div>
@@ -222,7 +222,7 @@ export default function Hero() {
               className="absolute bottom-4 right-0 glass rounded-2xl p-4 shadow-xl"
             >
               <div className="flex items-center gap-3">
-                <Globe size={20} className="text-[#0057FF]" />
+                <Globe size={20} className="text-[#1B4FD8]" />
                 <div>
                   <p className="text-white text-xs font-semibold">Live Shipping Route</p>
                   <p className="text-slate-300 text-xs">Portland, OR → Dubai, UAE</p>

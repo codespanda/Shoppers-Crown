@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Search, Grid3X3, List, Heart, Star, ShoppingCart, ChevronDown } from 'lucide-react'
 import { PRODUCTS, CATEGORIES } from '@/data/mockData'
@@ -52,7 +52,7 @@ export default function ShopPage() {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-[#0F172A]">Shop All Products</h1>
+              <h1 className="text-2xl font-bold text-[#0A1628]">Shop All Products</h1>
               <p className="text-slate-500 text-sm mt-1">Discover {PRODUCTS.length.toLocaleString()}+ products from top US brands</p>
             </div>
             <div className="flex items-center gap-3">
@@ -62,22 +62,22 @@ export default function ShopPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search products..."
-                  className="pl-9 pr-4 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#0057FF] w-64"
+                  className="pl-9 pr-4 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8] w-64"
                 />
               </div>
               <div className="relative">
                 <select
                   value={sort}
                   onChange={(e) => setSort(e.target.value)}
-                  className="pl-4 pr-10 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#0057FF] appearance-none bg-white cursor-pointer"
+                  className="pl-4 pr-10 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8] appearance-none bg-white cursor-pointer"
                 >
                   {SORT_OPTIONS.map((o) => <option key={o}>{o}</option>)}
                 </select>
                 <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
               </div>
               <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-xl p-1">
-                <button onClick={() => setView('grid')} className={`p-1.5 rounded-lg transition-colors ${view === 'grid' ? 'bg-[#0057FF] text-white' : 'text-slate-500'}`}><Grid3X3 size={16} /></button>
-                <button onClick={() => setView('list')} className={`p-1.5 rounded-lg transition-colors ${view === 'list' ? 'bg-[#0057FF] text-white' : 'text-slate-500'}`}><List size={16} /></button>
+                <button onClick={() => setView('grid')} className={`p-1.5 rounded-lg transition-colors ${view === 'grid' ? 'bg-[#1B4FD8] text-white' : 'text-slate-500'}`}><Grid3X3 size={16} /></button>
+                <button onClick={() => setView('list')} className={`p-1.5 rounded-lg transition-colors ${view === 'list' ? 'bg-[#1B4FD8] text-white' : 'text-slate-500'}`}><List size={16} /></button>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function ShopPage() {
           <div className="flex items-center gap-2 mt-4 overflow-x-auto scrollbar-hide pb-1">
             <button
               onClick={() => setActiveCategory('all')}
-              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === 'all' ? 'bg-[#0057FF] text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === 'all' ? 'bg-[#1B4FD8] text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
             >
               All Products
             </button>
@@ -94,7 +94,7 @@ export default function ShopPage() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === cat.id ? 'bg-[#0057FF] text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+                className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === cat.id ? 'bg-[#1B4FD8] text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
               >
                 {cat.icon} {cat.name}
               </button>
@@ -110,7 +110,7 @@ export default function ShopPage() {
             <div className="bg-white rounded-2xl border border-slate-100 p-5 sticky top-24">
               <div className="flex items-center justify-between mb-5">
                 <h3 className="font-bold text-slate-900">Filters</h3>
-                <button className="text-[#0057FF] text-xs font-medium hover:underline">Clear All</button>
+                <button className="text-[#1B4FD8] text-xs font-medium hover:underline">Clear All</button>
               </div>
 
               {/* Price range */}
@@ -122,7 +122,7 @@ export default function ShopPage() {
                   max="5000"
                   value={priceRange[1]}
                   onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
-                  className="w-full cursor-pointer accent-[#0057FF]"
+                  className="w-full cursor-pointer accent-[#1B4FD8]"
                 />
                 <div className="flex justify-between text-xs text-slate-500 mt-1">
                   <span>$0</span><span>${priceRange[1].toLocaleString()}</span>
@@ -135,7 +135,7 @@ export default function ShopPage() {
                 <div className="space-y-2">
                   {['Apple', 'Nike', 'Adidas', 'Sony', 'Samsung'].map((brand) => (
                     <label key={brand} className="flex items-center gap-2 cursor-pointer group">
-                      <input type="checkbox" className="rounded accent-[#0057FF] cursor-pointer" />
+                      <input type="checkbox" className="rounded accent-[#1B4FD8] cursor-pointer" />
                       <span className="text-sm text-slate-600 group-hover:text-slate-900">{brand}</span>
                     </label>
                   ))}
@@ -148,10 +148,10 @@ export default function ShopPage() {
                 <div className="space-y-2">
                   {[4.5, 4, 3.5, 3].map((r) => (
                     <label key={r} className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="rating" className="accent-[#0057FF] cursor-pointer" />
+                      <input type="radio" name="rating" className="accent-[#1B4FD8] cursor-pointer" />
                       <div className="flex items-center gap-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={12} className={i < Math.floor(r) ? 'text-[#FFB800] fill-[#FFB800]' : 'text-slate-200'} />
+                          <Star key={i} size={12} className={i < Math.floor(r) ? 'text-[#F59E0B] fill-[#F59E0B]' : 'text-slate-200'} />
                         ))}
                         <span className="text-xs text-slate-500">& up</span>
                       </div>
@@ -200,21 +200,21 @@ export default function ShopPage() {
                       <div className="p-4">
                         <p className="text-xs text-slate-400 font-medium mb-1">{product.brand}</p>
                         <Link to={`/product/${product.id}`}>
-                          <h3 className="font-semibold text-slate-900 text-sm leading-tight mb-2 hover:text-[#0057FF] transition-colors line-clamp-2">{product.name}</h3>
+                          <h3 className="font-semibold text-slate-900 text-sm leading-tight mb-2 hover:text-[#1B4FD8] transition-colors line-clamp-2">{product.name}</h3>
                         </Link>
                         <div className="flex items-center gap-1 mb-3">
-                          {[...Array(5)].map((_, j) => <Star key={j} size={11} className={j < Math.floor(product.rating) ? 'text-[#FFB800] fill-[#FFB800]' : 'text-slate-200'} />)}
+                          {[...Array(5)].map((_, j) => <Star key={j} size={11} className={j < Math.floor(product.rating) ? 'text-[#F59E0B] fill-[#F59E0B]' : 'text-slate-200'} />)}
                           <span className="text-xs text-slate-400 ml-1">({product.reviews.toLocaleString()})</span>
                         </div>
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-[#0F172A]">{formatCurrency(product.price)}</span>
+                            <span className="font-bold text-[#0A1628]">{formatCurrency(product.price)}</span>
                             {product.originalPrice && <span className="text-sm text-slate-400 line-through">{formatCurrency(product.originalPrice)}</span>}
                           </div>
                         </div>
                         <button
                           onClick={() => addItem({ productId: product.id, name: product.name, image: product.image, quantity: 1, price: product.price })}
-                          className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#0057FF] text-white text-sm font-medium hover:bg-[#0040CC] transition-colors"
+                          className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#1B4FD8] text-white text-sm font-medium hover:bg-[#1340B8] transition-colors"
                         >
                           <ShoppingCart size={15} /> Add to Cart
                         </button>
@@ -226,22 +226,22 @@ export default function ShopPage() {
                       <div className="flex-1">
                         <p className="text-xs text-slate-400 font-medium mb-1">{product.brand}</p>
                         <Link to={`/product/${product.id}`}>
-                          <h3 className="font-semibold text-slate-900 text-sm hover:text-[#0057FF] transition-colors">{product.name}</h3>
+                          <h3 className="font-semibold text-slate-900 text-sm hover:text-[#1B4FD8] transition-colors">{product.name}</h3>
                         </Link>
                         <div className="flex items-center gap-1 my-1">
-                          {[...Array(5)].map((_, j) => <Star key={j} size={11} className={j < Math.floor(product.rating) ? 'text-[#FFB800] fill-[#FFB800]' : 'text-slate-200'} />)}
+                          {[...Array(5)].map((_, j) => <Star key={j} size={11} className={j < Math.floor(product.rating) ? 'text-[#F59E0B] fill-[#F59E0B]' : 'text-slate-200'} />)}
                           <span className="text-xs text-slate-400 ml-1">({product.reviews.toLocaleString()})</span>
                         </div>
                         <p className="text-xs text-slate-500 line-clamp-1">{product.description}</p>
                       </div>
                       <div className="flex flex-col items-end justify-between">
                         <div className="text-right">
-                          <p className="font-bold text-[#0F172A]">{formatCurrency(product.price)}</p>
+                          <p className="font-bold text-[#0A1628]">{formatCurrency(product.price)}</p>
                           {product.originalPrice && <p className="text-xs text-slate-400 line-through">{formatCurrency(product.originalPrice)}</p>}
                         </div>
                         <button
                           onClick={() => addItem({ productId: product.id, name: product.name, image: product.image, quantity: 1, price: product.price })}
-                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0057FF] text-white text-sm font-medium hover:bg-[#0040CC] transition-colors"
+                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1B4FD8] text-white text-sm font-medium hover:bg-[#1340B8] transition-colors"
                         >
                           <ShoppingCart size={14} /> Add
                         </button>

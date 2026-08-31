@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Package, Globe } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
 export default function CTASection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-[#0057FF] to-[#00C2FF] overflow-hidden relative">
+    <section className="py-24 bg-gradient-to-br from-[#1B4FD8] to-[#38BDF8] overflow-hidden relative">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-white/5" />
@@ -53,7 +53,7 @@ export default function CTASection() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link to="/signup">
-            <Button size="xl" className="bg-white text-[#0057FF] hover:bg-slate-50 shadow-xl">
+            <Button size="xl" className="bg-white text-[#1B4FD8] hover:bg-slate-50 shadow-xl">
               <Package size={20} />
               Get Free US Address
               <ArrowRight size={20} />

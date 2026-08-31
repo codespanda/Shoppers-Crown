@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { MapPin, ShoppingBag, Package, Plane, Home } from 'lucide-react'
 
 const STEPS = [
@@ -7,15 +7,15 @@ const STEPS = [
     icon: <MapPin size={28} />,
     title: 'Get Your Free US Address',
     description: 'Sign up and instantly receive a unique US shipping address in Portland, Oregon. Use it when shopping at any US store.',
-    color: '#0057FF',
+    color: '#1B4FD8',
     bg: 'bg-blue-50',
   },
   {
     step: '02',
     icon: <ShoppingBag size={28} />,
     title: 'Shop Any US Store',
-    description: "Browse thousands of US online stores. Use your MyUS address at checkout — shop Amazon, Nike, Apple, or any US retailer.",
-    color: '#00C2FF',
+    description: "Browse thousands of US online stores. Use your Shoppers Crown address at checkout — shop Amazon, Nike, Apple, or any US retailer.",
+    color: '#38BDF8',
     bg: 'bg-sky-50',
   },
   {
@@ -31,7 +31,7 @@ const STEPS = [
     icon: <Plane size={28} />,
     title: 'We Ship Internationally',
     description: 'Choose your shipping speed and destination. We consolidate packages to save you money and ship with trusted global carriers.',
-    color: '#FFB800',
+    color: '#F59E0B',
     bg: 'bg-amber-50',
   },
   {
@@ -54,7 +54,7 @@ export default function HowItWorks() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#0057FF] font-semibold text-sm mb-3 uppercase tracking-wider"
+            className="text-[#1B4FD8] font-semibold text-sm mb-3 uppercase tracking-wider"
           >
             Simple Process
           </motion.p>
@@ -63,7 +63,7 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl lg:text-5xl font-bold text-[#0F172A] mb-4"
+            className="text-4xl lg:text-5xl font-bold text-[#0A1628] mb-4"
           >
             How It
             <span className="gradient-text"> Works</span>
@@ -82,7 +82,7 @@ export default function HowItWorks() {
         {/* Steps */}
         <div className="relative">
           {/* Connector line */}
-          <div className="hidden lg:block absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0057FF] via-[#00C2FF] to-[#8B5CF6] opacity-20" />
+          <div className="hidden lg:block absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-[#1B4FD8] via-[#38BDF8] to-[#8B5CF6] opacity-20" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
             {STEPS.map((step, i) => (
@@ -111,7 +111,7 @@ export default function HowItWorks() {
                   </span>
                 </div>
 
-                <h3 className="font-bold text-[#0F172A] text-base mb-2">{step.title}</h3>
+                <h3 className="font-bold text-[#0A1628] text-base mb-2">{step.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{step.description}</p>
 
                 {/* Arrow connector */}

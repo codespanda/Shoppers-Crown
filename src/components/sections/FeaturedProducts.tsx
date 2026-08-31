@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Heart, Star, ShoppingCart, Eye, ArrowRight, Zap } from 'lucide-react'
@@ -29,7 +29,7 @@ export default function FeaturedProducts() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-[#FFB800] font-semibold text-sm mb-3"
+              className="flex items-center gap-2 text-[#F59E0B] font-semibold text-sm mb-3"
             >
               <Zap size={16} />
               FEATURED PRODUCTS
@@ -39,13 +39,13 @@ export default function FeaturedProducts() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl font-bold text-[#0F172A]"
+              className="text-4xl font-bold text-[#0A1628]"
             >
               Trending Right
               <span className="gradient-text"> Now</span>
             </motion.h2>
           </div>
-          <Link to="/shop" className="hidden md:flex items-center gap-2 text-[#0057FF] font-semibold text-sm hover:gap-3 transition-all">
+          <Link to="/shop" className="hidden md:flex items-center gap-2 text-[#1B4FD8] font-semibold text-sm hover:gap-3 transition-all">
             Shop All <ArrowRight size={16} />
           </Link>
         </div>
@@ -98,7 +98,7 @@ export default function FeaturedProducts() {
                     </button>
                     <Link
                       to={`/product/${product.id}`}
-                      className="w-9 h-9 rounded-xl bg-white flex items-center justify-center shadow-lg text-slate-500 hover:text-[#0057FF] transition-colors"
+                      className="w-9 h-9 rounded-xl bg-white flex items-center justify-center shadow-lg text-slate-500 hover:text-[#1B4FD8] transition-colors"
                     >
                       <Eye size={16} />
                     </Link>
@@ -109,7 +109,7 @@ export default function FeaturedProducts() {
                 <div className="p-4">
                   <p className="text-xs text-slate-400 font-medium mb-1">{product.brand}</p>
                   <Link to={`/product/${product.id}`}>
-                    <h3 className="font-semibold text-slate-900 text-sm leading-tight mb-2 hover:text-[#0057FF] transition-colors line-clamp-2">
+                    <h3 className="font-semibold text-slate-900 text-sm leading-tight mb-2 hover:text-[#1B4FD8] transition-colors line-clamp-2">
                       {product.name}
                     </h3>
                   </Link>
@@ -120,7 +120,7 @@ export default function FeaturedProducts() {
                       <Star
                         key={j}
                         size={12}
-                        className={j < Math.floor(product.rating) ? 'text-[#FFB800] fill-[#FFB800]' : 'text-slate-200'}
+                        className={j < Math.floor(product.rating) ? 'text-[#F59E0B] fill-[#F59E0B]' : 'text-slate-200'}
                       />
                     ))}
                     <span className="text-xs text-slate-400 ml-1">({product.reviews.toLocaleString()})</span>
@@ -128,7 +128,7 @@ export default function FeaturedProducts() {
 
                   {/* Price */}
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-lg font-bold text-[#0F172A]">{formatCurrency(product.price)}</span>
+                    <span className="text-lg font-bold text-[#0A1628]">{formatCurrency(product.price)}</span>
                     {product.originalPrice && (
                       <span className="text-sm text-slate-400 line-through">{formatCurrency(product.originalPrice)}</span>
                     )}
@@ -148,7 +148,7 @@ export default function FeaturedProducts() {
                       quantity: 1,
                       price: product.price,
                     })}
-                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#0057FF] text-white text-sm font-medium hover:bg-[#0040CC] transition-colors group-hover:shadow-lg"
+                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#1B4FD8] text-white text-sm font-medium hover:bg-[#1340B8] transition-colors group-hover:shadow-lg"
                   >
                     <ShoppingCart size={16} />
                     Add to Cart

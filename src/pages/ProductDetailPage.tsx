@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Star, Heart, ShoppingCart, Package, Shield, RotateCcw, Truck, ChevronRight, Minus, Plus, Share2 } from 'lucide-react'
@@ -24,9 +24,9 @@ export default function ProductDetailPage() {
       <div className="bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center gap-2 text-sm text-slate-400">
-            <Link to="/" className="hover:text-[#0057FF]">Home</Link>
+            <Link to="/" className="hover:text-[#1B4FD8]">Home</Link>
             <ChevronRight size={14} />
-            <Link to="/shop" className="hover:text-[#0057FF]">Shop</Link>
+            <Link to="/shop" className="hover:text-[#1B4FD8]">Shop</Link>
             <ChevronRight size={14} />
             <span className="text-slate-900 font-medium">{product.name}</span>
           </div>
@@ -43,7 +43,7 @@ export default function ProductDetailPage() {
             {/* Thumbnails */}
             <div className="grid grid-cols-4 gap-3">
               {[...Array(4)].map((_, i) => (
-                <div key={i} className="aspect-square bg-white rounded-xl overflow-hidden border-2 border-slate-100 hover:border-[#0057FF] cursor-pointer transition-colors">
+                <div key={i} className="aspect-square bg-white rounded-xl overflow-hidden border-2 border-slate-100 hover:border-[#1B4FD8] cursor-pointer transition-colors">
                   <img src={product.image} alt="" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
               ))}
@@ -60,16 +60,16 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Brand */}
-            <p className="text-[#0057FF] font-semibold text-sm mb-2">{product.brand}</p>
+            <p className="text-[#1B4FD8] font-semibold text-sm mb-2">{product.brand}</p>
 
             {/* Name */}
-            <h1 className="text-3xl font-bold text-[#0F172A] leading-tight mb-4">{product.name}</h1>
+            <h1 className="text-3xl font-bold text-[#0A1628] leading-tight mb-4">{product.name}</h1>
 
             {/* Rating */}
             <div className="flex items-center gap-3 mb-5">
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className={i < Math.floor(product.rating) ? 'text-[#FFB800] fill-[#FFB800]' : 'text-slate-200'} />
+                  <Star key={i} size={16} className={i < Math.floor(product.rating) ? 'text-[#F59E0B] fill-[#F59E0B]' : 'text-slate-200'} />
                 ))}
               </div>
               <span className="font-semibold text-slate-900">{product.rating}</span>
@@ -78,7 +78,7 @@ export default function ProductDetailPage() {
 
             {/* Price */}
             <div className="flex items-baseline gap-3 mb-6">
-              <span className="text-4xl font-bold text-[#0F172A]">{formatCurrency(product.price)}</span>
+              <span className="text-4xl font-bold text-[#0A1628]">{formatCurrency(product.price)}</span>
               {product.originalPrice && (
                 <>
                   <span className="text-xl text-slate-400 line-through">{formatCurrency(product.originalPrice)}</span>
@@ -137,9 +137,9 @@ export default function ProductDetailPage() {
             {/* Trust signals */}
             <div className="grid grid-cols-3 gap-4">
               {[
-                { icon: <Shield size={18} />, label: 'Secure Payment', color: 'text-[#0057FF]' },
+                { icon: <Shield size={18} />, label: 'Secure Payment', color: 'text-[#1B4FD8]' },
                 { icon: <Package size={18} />, label: 'Packaged Safely', color: 'text-[#10B981]' },
-                { icon: <RotateCcw size={18} />, label: 'Easy Returns', color: 'text-[#FFB800]' },
+                { icon: <RotateCcw size={18} />, label: 'Easy Returns', color: 'text-[#F59E0B]' },
               ].map((item) => (
                 <div key={item.label} className="text-center p-3 bg-slate-50 rounded-xl">
                   <span className={`${item.color} flex justify-center mb-1`}>{item.icon}</span>
@@ -157,7 +157,7 @@ export default function ProductDetailPage() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`flex-1 py-4 text-sm font-semibold capitalize transition-colors ${activeTab === tab ? 'text-[#0057FF] border-b-2 border-[#0057FF] bg-blue-50/50' : 'text-slate-500 hover:text-slate-800'}`}
+                className={`flex-1 py-4 text-sm font-semibold capitalize transition-colors ${activeTab === tab ? 'text-[#1B4FD8] border-b-2 border-[#1B4FD8] bg-blue-50/50' : 'text-slate-500 hover:text-slate-800'}`}
               >
                 {tab}
               </button>
@@ -172,15 +172,15 @@ export default function ProductDetailPage() {
                 {[...Array(3)].map((_, i) => (
                   <div key={i} className="p-4 border border-slate-100 rounded-xl">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0057FF] to-[#00C2FF] flex items-center justify-center text-white text-xs font-bold">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1B4FD8] to-[#38BDF8] flex items-center justify-center text-white text-xs font-bold">
                         {['A', 'M', 'J'][i]}
                       </div>
                       <div>
                         <p className="font-medium text-slate-900 text-sm">{['Ahmed K.', 'Maria S.', 'John D.'][i]}</p>
-                        <div className="flex">{[...Array(5)].map((_, j) => <Star key={j} size={11} className="text-[#FFB800] fill-[#FFB800]" />)}</div>
+                        <div className="flex">{[...Array(5)].map((_, j) => <Star key={j} size={11} className="text-[#F59E0B] fill-[#F59E0B]" />)}</div>
                       </div>
                     </div>
-                    <p className="text-slate-600 text-sm">Excellent product! Exactly as described and arrived in perfect condition. Shipping through MyUS was smooth and the tracking was great.</p>
+                    <p className="text-slate-600 text-sm">Excellent product! Exactly as described and arrived in perfect condition. Shipping through Shoppers Crown was smooth and the tracking was great.</p>
                   </div>
                 ))}
               </div>
@@ -188,7 +188,7 @@ export default function ProductDetailPage() {
             {activeTab === 'shipping' && (
               <div className="space-y-3">
                 <div className="p-4 bg-blue-50 rounded-xl">
-                  <p className="font-semibold text-[#0057FF] mb-1">Estimated Shipping: {product.shippingEstimate}</p>
+                  <p className="font-semibold text-[#1B4FD8] mb-1">Estimated Shipping: {product.shippingEstimate}</p>
                   <p className="text-slate-600 text-sm">Ships from Portland, OR to your destination country via your chosen carrier.</p>
                 </div>
                 <p className="text-slate-600 text-sm">Weight: {product.weight} kg | Package consolidation available</p>
@@ -199,7 +199,7 @@ export default function ProductDetailPage() {
 
         {/* Related products */}
         <div>
-          <h2 className="text-2xl font-bold text-[#0F172A] mb-6">You Might Also Like</h2>
+          <h2 className="text-2xl font-bold text-[#0A1628] mb-6">You Might Also Like</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {relatedProducts.map((p) => (
               <Link key={p.id} to={`/product/${p.id}`}>
@@ -210,7 +210,7 @@ export default function ProductDetailPage() {
                   <div className="p-3">
                     <p className="text-xs text-slate-400 mb-1">{p.brand}</p>
                     <p className="font-semibold text-slate-900 text-sm line-clamp-1">{p.name}</p>
-                    <p className="font-bold text-[#0057FF] text-sm mt-1">{formatCurrency(p.price)}</p>
+                    <p className="font-bold text-[#1B4FD8] text-sm mt-1">{formatCurrency(p.price)}</p>
                   </div>
                 </div>
               </Link>

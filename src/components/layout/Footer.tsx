@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { Package, Globe, Mail, Phone } from 'lucide-react'
 
 const LINKS = {
@@ -42,7 +42,7 @@ const SOCIAL = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F172A] text-slate-400">
+    <footer className="bg-[#0A1628] text-slate-400">
       {/* Newsletter */}
       <div className="border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 py-12">
@@ -55,7 +55,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 md:w-72 px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder:text-slate-500 focus:outline-none focus:border-[#0057FF] text-sm"
+                className="flex-1 md:w-72 px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder:text-slate-500 focus:outline-none focus:border-[#1B4FD8] text-sm"
               />
               <button className="px-6 py-3 gradient-primary rounded-xl text-white text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap">
                 Subscribe
@@ -74,14 +74,14 @@ export default function Footer() {
               <div className="w-9 h-9 gradient-primary rounded-xl flex items-center justify-center">
                 <Package size={20} className="text-white" />
               </div>
-              <span className="text-white text-xl font-bold">MyUS Shopping</span>
+              <span className="text-white text-xl font-bold">Shoppers Crown</span>
             </Link>
             <p className="text-sm leading-relaxed mb-5">
               Your gateway to thousands of US stores. Shop, consolidate, and ship worldwide.
             </p>
             <div className="space-y-2">
-              <a href="mailto:support@myus.com" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
-                <Mail size={14} /> support@myus.com
+              <a href="mailto:support@Shoppers Crown.com" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
+                <Mail size={14} /> support@Shoppers Crown.com
               </a>
               <a href="tel:+18005551234" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
                 <Phone size={14} /> +1 (800) 555-1234
@@ -113,7 +113,7 @@ export default function Footer() {
       <div className="border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} MyUS Shopping. All rights reserved.
+            © {new Date().getFullYear()} Shoppers Crown. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">
@@ -130,7 +130,7 @@ export default function Footer() {
                 key={s.label}
                 href={s.href}
                 aria-label={s.label}
-                className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-[#0057FF] hover:text-white transition-all duration-200"
+                className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-[#1B4FD8] hover:text-white transition-all duration-200"
               >
                 {s.icon}
               </a>

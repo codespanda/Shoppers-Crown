@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ShoppingCart, Minus, Plus, Trash2, ArrowRight, Package } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
@@ -15,7 +15,7 @@ export default function CartPage() {
           <div className="w-24 h-24 gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-glow">
             <ShoppingCart size={40} className="text-white" />
           </div>
-          <h2 className="text-2xl font-bold text-[#0F172A] mb-3">Your cart is empty</h2>
+          <h2 className="text-2xl font-bold text-[#0A1628] mb-3">Your cart is empty</h2>
           <p className="text-slate-500 mb-8">Browse our collection and add items to your cart</p>
           <Link to="/shop">
             <Button size="lg" iconRight={<ArrowRight size={18} />}>Start Shopping</Button>
@@ -33,7 +33,7 @@ export default function CartPage() {
     <div className="min-h-screen bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-[#0F172A]">Shopping Cart</h1>
+          <h1 className="text-3xl font-bold text-[#0A1628]">Shopping Cart</h1>
           <button onClick={clearCart} className="text-sm text-red-500 hover:text-red-600 font-medium">Clear All</button>
         </div>
 
@@ -52,7 +52,7 @@ export default function CartPage() {
                 <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl flex-shrink-0" />
                 <div className="flex-1">
                   <h3 className="font-semibold text-slate-900 text-sm mb-2">{item.name}</h3>
-                  <p className="font-bold text-[#0057FF] text-lg">{formatCurrency(item.price)}</p>
+                  <p className="font-bold text-[#1B4FD8] text-lg">{formatCurrency(item.price)}</p>
                 </div>
                 <div className="flex flex-col items-end justify-between">
                   <button onClick={() => removeItem(item.productId)} className="p-1.5 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all">
@@ -95,13 +95,13 @@ export default function CartPage() {
               <div className="border-t border-slate-100 pt-4 mb-6">
                 <div className="flex justify-between">
                   <span className="font-bold text-slate-900">Total</span>
-                  <span className="font-bold text-xl text-[#0F172A]">{formatCurrency(grandTotal)}</span>
+                  <span className="font-bold text-xl text-[#0A1628]">{formatCurrency(grandTotal)}</span>
                 </div>
               </div>
 
               {/* Promo code */}
               <div className="flex gap-2 mb-5">
-                <input placeholder="Promo code" className="flex-1 px-3 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#0057FF]" />
+                <input placeholder="Promo code" className="flex-1 px-3 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8]" />
                 <button className="px-4 py-2 bg-slate-100 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-200 transition-colors">Apply</button>
               </div>
 

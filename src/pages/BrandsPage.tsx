@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Search, ArrowRight } from 'lucide-react'
 import { BRANDS } from '@/data/mockData'
@@ -12,7 +12,7 @@ export default function BrandsPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#0057FF] to-[#00C2FF] py-16">
+      <div className="bg-gradient-to-r from-[#1B4FD8] to-[#38BDF8] py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl font-bold text-white mb-4">
             Top US Brands
@@ -60,7 +60,7 @@ export default function BrandsPage() {
                       <p className="text-xs text-slate-400">{brand.productsCount.toLocaleString()}+ products</p>
                       <p className="text-xs text-emerald-600 font-medium mt-0.5">Ships in {brand.shippingEstimate}</p>
                     </div>
-                    <div className="flex items-center gap-1 text-[#0057FF] text-xs font-semibold hover:gap-2 transition-all">
+                    <div className="flex items-center gap-1 text-[#1B4FD8] text-xs font-semibold hover:gap-2 transition-all">
                       Shop <ArrowRight size={12} />
                     </div>
                   </div>

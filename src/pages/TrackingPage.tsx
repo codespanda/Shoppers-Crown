@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Search, Package, MapPin, CheckCircle2, Clock, Truck } from 'lucide-react'
 import { TRACKING_EVENTS } from '@/data/mockData'
@@ -32,7 +32,7 @@ export default function TrackingPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-[#0F172A] to-[#1E3A8A] py-16">
+      <div className="bg-gradient-to-br from-[#0A1628] to-[#1E3A8A] py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm mb-6">
@@ -40,7 +40,7 @@ export default function TrackingPage() {
               Real-time Package Tracking
             </div>
             <h1 className="text-4xl font-bold text-white mb-4">Track Your Package</h1>
-            <p className="text-white/60 mb-8">Enter your MyUS tracking number or carrier tracking number</p>
+            <p className="text-white/60 mb-8">Enter your Shoppers Crown tracking number or carrier tracking number</p>
 
             <div className="flex gap-3 max-w-xl mx-auto">
               <div className="flex-1 relative">
@@ -49,8 +49,8 @@ export default function TrackingPage() {
                   value={trackingNumber}
                   onChange={(e) => setTrackingNumber(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleTrack()}
-                  placeholder="e.g. MYUS-2026-789456"
-                  className="w-full pl-11 pr-4 py-4 rounded-2xl bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-[#0057FF]/20 text-sm shadow-lg"
+                  placeholder="e.g. Shoppers Crown-2026-789456"
+                  className="w-full pl-11 pr-4 py-4 rounded-2xl bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-[#1B4FD8]/20 text-sm shadow-lg"
                 />
               </div>
               <Button size="lg" onClick={handleTrack} loading={loading} className="px-8 rounded-2xl">
@@ -74,7 +74,7 @@ export default function TrackingPage() {
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                 <div>
                   <p className="text-slate-400 text-sm mb-1">Tracking Number</p>
-                  <p className="text-xl font-bold text-[#0F172A] font-mono">{result.trackingNumber}</p>
+                  <p className="text-xl font-bold text-[#0A1628] font-mono">{result.trackingNumber}</p>
                 </div>
                 <Badge variant="warning" size="md" className="text-sm px-4 py-2 self-start md:self-auto">
                   <Truck size={14} className="mr-1.5" /> In Transit
@@ -101,8 +101,8 @@ export default function TrackingPage() {
                   {progressSteps.map((step, i) => (
                     <div key={step} className="flex flex-col items-center gap-1">
                       <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                        i < currentStep ? 'bg-[#0057FF] text-white' :
-                        i === currentStep ? 'bg-[#0057FF] text-white ring-4 ring-[#0057FF]/20' :
+                        i < currentStep ? 'bg-[#1B4FD8] text-white' :
+                        i === currentStep ? 'bg-[#1B4FD8] text-white ring-4 ring-[#1B4FD8]/20' :
                         'bg-slate-100 text-slate-400'
                       }`}>
                         {i < currentStep ? <CheckCircle2 size={14} /> : i + 1}
@@ -112,7 +112,7 @@ export default function TrackingPage() {
                   ))}
                 </div>
                 <div className="absolute top-3.5 left-0 right-0 h-0.5 bg-slate-100 -z-0">
-                  <div className="h-full bg-[#0057FF] transition-all" style={{ width: `${(currentStep / (progressSteps.length - 1)) * 100}%` }} />
+                  <div className="h-full bg-[#1B4FD8] transition-all" style={{ width: `${(currentStep / (progressSteps.length - 1)) * 100}%` }} />
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function TrackingPage() {
                   >
                     <div className="flex flex-col items-center">
                       <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                        i === 0 ? 'bg-[#0057FF] text-white shadow-md' : 'bg-slate-100 text-slate-400'
+                        i === 0 ? 'bg-[#1B4FD8] text-white shadow-md' : 'bg-slate-100 text-slate-400'
                       }`}>
                         {STATUS_ICONS[event.status as keyof typeof STATUS_ICONS] ?? <Package size={16} />}
                       </div>

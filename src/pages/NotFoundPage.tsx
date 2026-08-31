@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Home, ArrowLeft } from 'lucide-react'
 import Button from '@/components/ui/Button'
@@ -12,7 +12,7 @@ export default function NotFoundPage() {
         className="text-center max-w-md"
       >
         <div className="text-9xl font-black gradient-text mb-6">404</div>
-        <h1 className="text-2xl font-bold text-[#0F172A] mb-3">Page not found</h1>
+        <h1 className="text-2xl font-bold text-[#0A1628] mb-3">Page not found</h1>
         <p className="text-slate-500 mb-8">The page you're looking for doesn't exist or has been moved.</p>
         <div className="flex gap-3 justify-center">
           <button onClick={() => window.history.back()}>

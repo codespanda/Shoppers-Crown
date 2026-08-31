@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
@@ -42,7 +42,7 @@ export default function LoginPage() {
             <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center shadow-glow">
               <Package size={22} className="text-white" />
             </div>
-            <span className="text-2xl font-bold text-white">MyUS Shopping</span>
+            <span className="text-2xl font-bold text-white">Shoppers Crown</span>
           </Link>
         </div>
 
@@ -74,10 +74,10 @@ export default function LoginPage() {
 
             <div className="flex items-center justify-between">
               <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" className="rounded accent-[#0057FF]" />
+                <input type="checkbox" className="rounded accent-[#1B4FD8]" />
                 <span className="text-sm text-slate-600">Remember me</span>
               </label>
-              <Link to="/forgot-password" className="text-sm text-[#0057FF] hover:underline">Forgot password?</Link>
+              <Link to="/forgot-password" className="text-sm text-[#1B4FD8] hover:underline">Forgot password?</Link>
             </div>
 
             <Button type="submit" size="lg" className="w-full" loading={isSubmitting} iconRight={<ArrowRight size={18} />}>
@@ -92,7 +92,7 @@ export default function LoginPage() {
 
           <p className="text-center text-sm text-slate-500 mt-6">
             Don't have an account?{' '}
-            <Link to="/signup" className="text-[#0057FF] font-semibold hover:underline">Create one free</Link>
+            <Link to="/signup" className="text-[#1B4FD8] font-semibold hover:underline">Create one free</Link>
           </p>
         </div>
       </motion.div>

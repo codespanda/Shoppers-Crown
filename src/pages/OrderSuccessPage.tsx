@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { CheckCircle2, Package, ArrowRight, MapPin } from 'lucide-react'
 import Button from '@/components/ui/Button'
@@ -25,14 +25,14 @@ export default function OrderSuccessPage() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-          <h1 className="text-3xl font-bold text-[#0F172A] mb-2">Order Confirmed!</h1>
+          <h1 className="text-3xl font-bold text-[#0A1628] mb-2">Order Confirmed!</h1>
           <p className="text-slate-500 mb-2">Thank you for your purchase</p>
           <p className="text-slate-400 text-sm mb-8">Order number: <span className="font-semibold text-slate-700">{orderNumber}</span></p>
 
           <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 mb-6 text-left space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 bg-blue-50 rounded-xl flex items-center justify-center">
-                <Package size={18} className="text-[#0057FF]" />
+                <Package size={18} className="text-[#1B4FD8]" />
               </div>
               <div>
                 <p className="text-sm font-semibold text-slate-900">Processing your order</p>

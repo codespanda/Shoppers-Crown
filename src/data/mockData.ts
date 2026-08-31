@@ -1,4 +1,4 @@
-import type { Product, Brand, Category, Country, Testimonial, ShipmentTracking } from '@/types'
+﻿import type { Product, Brand, Category, Country, Testimonial, ShipmentTracking } from '@/types'
 
 export const BRANDS: Brand[] = [
   { id: '1',  name: 'Amazon',    logo: 'https://logo.clearbit.com/amazon.com',    category: 'General',        productsCount: 50000,   popularProducts: ['Echo Dot', 'Fire TV', 'Kindle'],               shippingEstimate: '7-12 days', description: 'Everything store',         color: '#FF9900' },
@@ -57,17 +57,17 @@ export const PRODUCTS: Product[] = [
 ]
 
 export const TESTIMONIALS: Testimonial[] = [
-  { id: '1', name: 'Ahmed Al-Rashid', country: 'UAE', avatar: 'https://randomuser.me/api/portraits/men/1.jpg', rating: 5, review: 'MyUS made it so easy to shop from US stores. I received my iPhone 15 in just 9 days! The packaging was perfect and tracking was seamless throughout.', date: '2026-05-15', verified: true },
-  { id: '2', name: 'Priya Sharma', country: 'India', avatar: 'https://randomuser.me/api/portraits/women/2.jpg', rating: 5, review: 'I\'ve been using MyUS for 3 years now. The consolidation service saves me so much money. Their customer support is incredibly responsive and helpful.', date: '2026-05-20', verified: true },
+  { id: '1', name: 'Ahmed Al-Rashid', country: 'UAE', avatar: 'https://randomuser.me/api/portraits/men/1.jpg', rating: 5, review: 'Shoppers Crown made it so easy to shop from US stores. I received my iPhone 15 in just 9 days! The packaging was perfect and tracking was seamless throughout.', date: '2026-05-15', verified: true },
+  { id: '2', name: 'Priya Sharma', country: 'India', avatar: 'https://randomuser.me/api/portraits/women/2.jpg', rating: 5, review: 'I\'ve been using Shoppers Crown for 3 years now. The consolidation service saves me so much money. Their customer support is incredibly responsive and helpful.', date: '2026-05-20', verified: true },
   { id: '3', name: 'Lars Andersson', country: 'Sweden', avatar: 'https://randomuser.me/api/portraits/men/3.jpg', rating: 4, review: 'Great service for getting US-exclusive products. Shipping to Scandinavia is well-priced and the app makes tracking very convenient.', date: '2026-06-01', verified: true },
-  { id: '4', name: 'Yuki Tanaka', country: 'Japan', avatar: 'https://randomuser.me/api/portraits/women/4.jpg', rating: 5, review: 'Absolutely love MyUS! I shop from Nike, Sephora, and Amazon regularly. The free US address is a game changer for international shoppers.', date: '2026-06-10', verified: true },
-  { id: '5', name: 'Carlos Mendez', country: 'Mexico', avatar: 'https://randomuser.me/api/portraits/men/5.jpg', rating: 5, review: 'Fast, reliable and affordable. I\'ve shipped over 50 packages through MyUS and never had a single issue. Highly recommended!', date: '2026-06-15', verified: true },
-  { id: '6', name: 'Sophie Martin', country: 'France', avatar: 'https://randomuser.me/api/portraits/women/6.jpg', rating: 4, review: 'MyUS is my go-to for American fashion brands. The package photos before shipping give me great peace of mind. Will continue using!', date: '2026-06-20', verified: true },
+  { id: '4', name: 'Yuki Tanaka', country: 'Japan', avatar: 'https://randomuser.me/api/portraits/women/4.jpg', rating: 5, review: 'Absolutely love Shoppers Crown! I shop from Nike, Sephora, and Amazon regularly. The free US address is a game changer for international shoppers.', date: '2026-06-10', verified: true },
+  { id: '5', name: 'Carlos Mendez', country: 'Mexico', avatar: 'https://randomuser.me/api/portraits/men/5.jpg', rating: 5, review: 'Fast, reliable and affordable. I\'ve shipped over 50 packages through Shoppers Crown and never had a single issue. Highly recommended!', date: '2026-06-15', verified: true },
+  { id: '6', name: 'Sophie Martin', country: 'France', avatar: 'https://randomuser.me/api/portraits/women/6.jpg', rating: 4, review: 'Shoppers Crown is my go-to for American fashion brands. The package photos before shipping give me great peace of mind. Will continue using!', date: '2026-06-20', verified: true },
 ]
 
 export const TRACKING_EVENTS: ShipmentTracking = {
   id: '1',
-  trackingNumber: 'MYUS-2026-789456',
+  trackingNumber: 'Shoppers Crown-2026-789456',
   status: 'in-transit',
   origin: 'Portland, OR, USA',
   destination: 'Dubai, UAE',
@@ -77,7 +77,7 @@ export const TRACKING_EVENTS: ShipmentTracking = {
   dimensions: { l: 35, w: 25, h: 15 },
   items: ['iPhone 15 Pro Max', 'AirPods Pro'],
   events: [
-    { id: '1', timestamp: '2026-07-01 14:32', location: 'Portland, OR', description: 'Package received at MyUS warehouse', status: 'received' },
+    { id: '1', timestamp: '2026-07-01 14:32', location: 'Portland, OR', description: 'Package received at Shoppers Crown warehouse', status: 'received' },
     { id: '2', timestamp: '2026-07-01 18:45', location: 'Portland, OR', description: 'Package inspected and processed', status: 'processed' },
     { id: '3', timestamp: '2026-07-02 06:12', location: 'Portland, OR', description: 'Handed over to DHL Express', status: 'dispatched' },
     { id: '4', timestamp: '2026-07-02 22:08', location: 'Cincinnati, OH', description: 'Departed DHL hub', status: 'in-transit' },
@@ -94,12 +94,12 @@ export const STATS = [
 ]
 
 export const FAQ_ITEMS = [
-  { q: 'How do I get my free US address?', a: 'Simply sign up for a free MyUS account. You\'ll instantly receive a unique US address in Portland, Oregon that you can use when shopping at any US store.' },
+  { q: 'How do I get my free US address?', a: 'Simply sign up for a free Shoppers Crown account. You\'ll instantly receive a unique US address in Portland, Oregon that you can use when shopping at any US store.' },
   { q: 'How long does shipping take?', a: 'Shipping times vary by destination and service level. Economy shipping typically takes 12-20 days, while Express services deliver in 5-10 days to most countries.' },
   { q: 'Can I consolidate multiple packages?', a: 'Yes! Package consolidation is one of our most popular features. We can combine up to 10 packages into one shipment, saving you up to 80% on shipping costs.' },
   { q: 'What items can I ship internationally?', a: 'Most consumer goods can be shipped internationally. We\'ll help you understand any restrictions for your destination country and ensure compliance with customs regulations.' },
   { q: 'How is shipping cost calculated?', a: 'Shipping cost is based on the greater of actual weight or dimensional weight, your destination country, and chosen shipping speed. Use our calculator for an instant estimate.' },
   { q: 'Is my package insured?', a: 'Basic insurance is included with all shipments. We offer optional enhanced coverage up to $2,000 for high-value items for complete peace of mind.' },
-  { q: 'How do I track my shipment?', a: 'You can track your shipment in real-time from your MyUS dashboard, or using the tracking number on the carrier\'s website. We also send proactive email and SMS updates.' },
+  { q: 'How do I track my shipment?', a: 'You can track your shipment in real-time from your Shoppers Crown dashboard, or using the tracking number on the carrier\'s website. We also send proactive email and SMS updates.' },
   { q: 'What happens if my package arrives damaged?', a: 'We photograph every package upon arrival and before shipping. If damage occurs, our claims team works with the carrier to resolve it quickly and fairly.' },
 ]

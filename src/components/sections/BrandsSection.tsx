@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, TrendingUp } from 'lucide-react'
 import { BRANDS } from '@/data/mockData'
@@ -15,7 +15,7 @@ export default function BrandsSection() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 text-[#0057FF] font-semibold text-sm mb-3"
+              className="flex items-center gap-2 text-[#1B4FD8] font-semibold text-sm mb-3"
             >
               <TrendingUp size={16} />
               TOP US BRANDS
@@ -25,13 +25,13 @@ export default function BrandsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl font-bold text-[#0F172A]"
+              className="text-4xl font-bold text-[#0A1628]"
             >
               Shop Your Favorite
               <span className="gradient-text"> US Stores</span>
             </motion.h2>
           </div>
-          <Link to="/brands" className="hidden md:flex items-center gap-2 text-[#0057FF] font-semibold text-sm hover:gap-3 transition-all">
+          <Link to="/brands" className="hidden md:flex items-center gap-2 text-[#1B4FD8] font-semibold text-sm hover:gap-3 transition-all">
             View All Brands <ArrowRight size={16} />
           </Link>
         </div>
@@ -49,7 +49,7 @@ export default function BrandsSection() {
               className="group"
             >
               <Link to={`/brands/${brand.id}`}>
-                <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#0057FF]/20 transition-all duration-300 text-center">
+                <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#1B4FD8]/20 transition-all duration-300 text-center">
                   {/* Logo */}
                   <div
                     className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm overflow-hidden p-1.5"
@@ -59,7 +59,7 @@ export default function BrandsSection() {
                   </div>
 
                   {/* Name */}
-                  <p className="font-semibold text-slate-900 text-sm mb-1 group-hover:text-[#0057FF] transition-colors">
+                  <p className="font-semibold text-slate-900 text-sm mb-1 group-hover:text-[#1B4FD8] transition-colors">
                     {brand.name}
                   </p>
 

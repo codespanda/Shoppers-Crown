@@ -3,8 +3,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 
 const NO_FOOTER = ['/login', '/signup', '/dashboard', '/checkout']
-const NO_NAVBAR_ROUTES = ['/login', '/signup']
-
+const NO_NAVBAR_ROUTES = ['/login', '/signup', '/dashboard', '/notifications']
 export default function Layout() {
   const { pathname } = useLocation()
   const hideNav = NO_NAVBAR_ROUTES.some((r) => pathname.startsWith(r))

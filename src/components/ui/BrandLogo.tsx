@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Inline SVG brand logos — no external CDN needed.
  * Each logo is a minimal, recognisable rendition of the brand mark.
  */
@@ -124,7 +124,7 @@ export default function BrandLogo({ name, size = 48, className = '' }: BrandLogo
   return (
     <span
       className={`inline-flex items-center justify-center rounded-xl font-black text-white ${className}`}
-      style={{ width: size, height: size, background: '#0057FF', fontSize: size * 0.35 }}
+      style={{ width: size, height: size, background: '#1B4FD8', fontSize: size * 0.35 }}
     >
       {name.slice(0, 2).toUpperCase()}
     </span>

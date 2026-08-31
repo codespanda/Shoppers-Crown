@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+﻿import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { STATS } from '@/data/mockData'
 
@@ -42,7 +42,7 @@ export default function StatsSection() {
               className="text-center"
             >
               <div className="text-3xl mb-3">{stat.icon}</div>
-              <div className="text-4xl lg:text-5xl font-bold text-[#0F172A] mb-2">
+              <div className="text-4xl lg:text-5xl font-bold text-[#0A1628] mb-2">
                 <CountUp end={stat.value} suffix={stat.suffix} />
               </div>
               <p className="text-slate-500 text-sm font-medium">{stat.label}</p>

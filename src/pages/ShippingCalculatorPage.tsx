@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Calculator, Package, Globe, Zap, Shield, Truck, CheckCircle2, Info } from 'lucide-react'
 import { COUNTRIES } from '@/data/mockData'
@@ -8,8 +8,8 @@ import Button from '@/components/ui/Button'
 
 const SPEEDS = [
   { id: 'economy',  label: 'Economy',  days: '12–20',  multiplier: 1,   icon: <Package size={18} />,  color: 'text-slate-500', popular: false },
-  { id: 'standard', label: 'Standard', days: '8–14',   multiplier: 1.4, icon: <Truck size={18} />,    color: 'text-[#0057FF]', popular: true  },
-  { id: 'express',  label: 'Express',  days: '3–7',    multiplier: 2.2, icon: <Zap size={18} />,      color: 'text-[#FFB800]', popular: false },
+  { id: 'standard', label: 'Standard', days: '8–14',   multiplier: 1.4, icon: <Truck size={18} />,    color: 'text-[#1B4FD8]', popular: true  },
+  { id: 'express',  label: 'Express',  days: '3–7',    multiplier: 2.2, icon: <Zap size={18} />,      color: 'text-[#F59E0B]', popular: false },
 ]
 
 const CARRIERS = ['DHL Express', 'FedEx', 'UPS', 'USPS Priority']
@@ -39,7 +39,7 @@ export default function ShippingCalculatorPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-[#0F172A] to-[#1E3A8A] py-16 text-center px-4">
+      <div className="bg-gradient-to-br from-[#0A1628] to-[#1E3A8A] py-16 text-center px-4">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm mb-5">
             <Calculator size={14} /> Instant Rate Calculator
@@ -61,12 +61,12 @@ export default function ShippingCalculatorPage() {
           >
             {/* Destination */}
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
-              <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2"><Globe size={18} className="text-[#0057FF]" /> Destination</h3>
+              <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2"><Globe size={18} className="text-[#1B4FD8]" /> Destination</h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1.5">Ship From</label>
                   <div className="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-600 font-medium">
-                    🇺🇸 Portland, OR (MyUS Warehouse)
+                    🇺🇸 Portland, OR (Shoppers Crown Warehouse)
                   </div>
                 </div>
                 <div>
@@ -74,7 +74,7 @@ export default function ShippingCalculatorPage() {
                   <select
                     value={country}
                     onChange={(e) => setCountry(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#0057FF] bg-white"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8] bg-white"
                   >
                     {COUNTRIES.map((c) => <option key={c.id} value={c.id}>{c.flag} {c.name}</option>)}
                   </select>
@@ -84,14 +84,14 @@ export default function ShippingCalculatorPage() {
 
             {/* Package dimensions */}
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
-              <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2"><Package size={18} className="text-[#0057FF]" /> Package Details</h3>
+              <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2"><Package size={18} className="text-[#1B4FD8]" /> Package Details</h3>
               <div className="mb-5">
                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Actual Weight: <span className="text-[#0057FF] font-bold">{weight} kg</span>
+                  Actual Weight: <span className="text-[#1B4FD8] font-bold">{weight} kg</span>
                 </label>
                 <input type="range" min="0.1" max="30" step="0.1" value={weight} onChange={(e) => setWeight(parseFloat(e.target.value))}
                   className="w-full h-2 rounded-full appearance-none cursor-pointer"
-                  style={{ background: `linear-gradient(to right, #0057FF ${(weight / 30) * 100}%, #e2e8f0 ${(weight / 30) * 100}%)` }}
+                  style={{ background: `linear-gradient(to right, #1B4FD8 ${(weight / 30) * 100}%, #e2e8f0 ${(weight / 30) * 100}%)` }}
                 />
                 <div className="flex justify-between text-xs text-slate-400 mt-1"><span>0.1 kg</span><span>30 kg</span></div>
               </div>
@@ -104,7 +104,7 @@ export default function ShippingCalculatorPage() {
                   <div key={label}>
                     <label className="block text-xs font-medium text-slate-500 mb-1">{label}</label>
                     <input type="number" min={1} max={200} value={val} onChange={(e) => set(parseInt(e.target.value) || 1)}
-                      className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#0057FF]" />
+                      className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8]" />
                   </div>
                 ))}
               </div>
@@ -118,17 +118,17 @@ export default function ShippingCalculatorPage() {
 
             {/* Shipping speed */}
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
-              <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2"><Zap size={18} className="text-[#0057FF]" /> Shipping Speed</h3>
+              <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2"><Zap size={18} className="text-[#1B4FD8]" /> Shipping Speed</h3>
               <div className="grid grid-cols-3 gap-3 mb-5">
                 {SPEEDS.map((s) => (
                   <button key={s.id} onClick={() => setSpeed(s.id)}
-                    className={`relative p-4 rounded-2xl border-2 text-left transition-all ${speed === s.id ? 'border-[#0057FF] bg-blue-50' : 'border-slate-200 hover:border-slate-300'}`}
+                    className={`relative p-4 rounded-2xl border-2 text-left transition-all ${speed === s.id ? 'border-[#1B4FD8] bg-blue-50' : 'border-slate-200 hover:border-slate-300'}`}
                   >
                     {s.popular && (
-                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#0057FF] text-white text-xs px-2 py-0.5 rounded-full whitespace-nowrap">Popular</span>
+                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#1B4FD8] text-white text-xs px-2 py-0.5 rounded-full whitespace-nowrap">Popular</span>
                     )}
-                    <span className={`${speed === s.id ? 'text-[#0057FF]' : s.color} mb-2 block`}>{s.icon}</span>
-                    <p className={`font-semibold text-sm ${speed === s.id ? 'text-[#0057FF]' : 'text-slate-800'}`}>{s.label}</p>
+                    <span className={`${speed === s.id ? 'text-[#1B4FD8]' : s.color} mb-2 block`}>{s.icon}</span>
+                    <p className={`font-semibold text-sm ${speed === s.id ? 'text-[#1B4FD8]' : 'text-slate-800'}`}>{s.label}</p>
                     <p className="text-xs text-slate-400">{s.days} days</p>
                   </button>
                 ))}
@@ -140,7 +140,7 @@ export default function ShippingCalculatorPage() {
                 <div className="grid grid-cols-2 gap-2">
                   {CARRIERS.map((c) => (
                     <button key={c} onClick={() => setCarrier(c)}
-                      className={`px-3 py-2 rounded-xl border text-sm font-medium transition-all ${carrier === c ? 'border-[#0057FF] bg-blue-50 text-[#0057FF]' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}>
+                      className={`px-3 py-2 rounded-xl border text-sm font-medium transition-all ${carrier === c ? 'border-[#1B4FD8] bg-blue-50 text-[#1B4FD8]' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}>
                       {c}
                     </button>
                   ))}
@@ -159,7 +159,7 @@ export default function ShippingCalculatorPage() {
                   </div>
                 </div>
                 <button onClick={() => setInsurance(!insurance)}
-                  className={`w-12 h-6 rounded-full transition-all relative flex-shrink-0 ${insurance ? 'bg-[#0057FF]' : 'bg-slate-200'}`}>
+                  className={`w-12 h-6 rounded-full transition-all relative flex-shrink-0 ${insurance ? 'bg-[#1B4FD8]' : 'bg-slate-200'}`}>
                   <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${insurance ? 'translate-x-6' : 'translate-x-0.5'}`} />
                 </button>
               </div>
@@ -175,7 +175,7 @@ export default function ShippingCalculatorPage() {
           >
             <div className="sticky top-24 space-y-5">
               {/* Price card */}
-              <div className="bg-gradient-to-br from-[#0057FF] to-[#00C2FF] rounded-3xl p-6 text-white shadow-xl">
+              <div className="bg-gradient-to-br from-[#1B4FD8] to-[#38BDF8] rounded-3xl p-6 text-white shadow-xl">
                 <p className="text-white/70 text-sm mb-1">Estimated Total</p>
                 <motion.div key={total} initial={{ scale: 1.05 }} animate={{ scale: 1 }}>
                   <p className="text-5xl font-bold mb-4">{formatCurrency(total)}</p>

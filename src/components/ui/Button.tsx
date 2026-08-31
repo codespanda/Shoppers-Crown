@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+﻿import { forwardRef } from 'react'
 import { cn } from '@/lib/utils'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -10,12 +10,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variants = {
-  primary: 'bg-[#0057FF] hover:bg-[#0040CC] text-white shadow-md hover:shadow-lg active:shadow-sm',
-  secondary: 'bg-[#00C2FF] hover:bg-[#009FD4] text-white shadow-md hover:shadow-lg',
-  outline: 'border-2 border-[#0057FF] text-[#0057FF] hover:bg-[#0057FF] hover:text-white',
+  primary: 'bg-[#1B4FD8] hover:bg-[#1340B8] text-white shadow-md hover:shadow-lg active:shadow-sm',
+  secondary: 'bg-[#38BDF8] hover:bg-[#009FD4] text-white shadow-md hover:shadow-lg',
+  outline: 'border-2 border-[#1B4FD8] text-[#1B4FD8] hover:bg-[#1B4FD8] hover:text-white',
   ghost: 'text-slate-600 hover:bg-slate-100 hover:text-slate-900',
   danger: 'bg-[#EF4444] hover:bg-red-600 text-white shadow-md',
-  accent: 'bg-[#FFB800] hover:bg-amber-500 text-[#0F172A] font-semibold shadow-md',
+  accent: 'bg-[#F59E0B] hover:bg-amber-500 text-[#0A1628] font-semibold shadow-md',
 }
 
 const sizes = {
@@ -42,7 +42,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       disabled={disabled || loading}
       className={cn(
         'inline-flex items-center justify-center font-medium transition-all duration-200 cursor-pointer select-none',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0057FF] focus-visible:ring-offset-2',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B4FD8] focus-visible:ring-offset-2',
         'disabled:opacity-50 disabled:cursor-not-allowed',
         variants[variant],
         sizes[size],

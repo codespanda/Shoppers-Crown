@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { CheckCircle2, X, Zap, Star, Building2, ArrowRight, Package, Truck, Shield } from 'lucide-react'
@@ -35,9 +35,9 @@ const PLANS = [
     icon: <Zap size={24} />,
     monthlyPrice: 9.99,
     annualPrice: 7.99,
-    color: 'text-[#0057FF]',
+    color: 'text-[#1B4FD8]',
     bg: 'bg-blue-50',
-    border: 'border-[#0057FF]',
+    border: 'border-[#1B4FD8]',
     popular: true,
     description: 'Best for regular shoppers who want more savings and flexibility.',
     features: [
@@ -60,7 +60,7 @@ const PLANS = [
     icon: <Building2 size={24} />,
     monthlyPrice: 49.99,
     annualPrice: 39.99,
-    color: 'text-[#FFB800]',
+    color: 'text-[#F59E0B]',
     bg: 'bg-amber-50',
     border: 'border-amber-300',
     description: 'For high-volume shippers and businesses with complex needs.',
@@ -95,10 +95,10 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-[#0F172A] to-[#1E3A8A] py-20 text-center px-4">
+      <div className="bg-gradient-to-br from-[#0A1628] to-[#1E3A8A] py-20 text-center px-4">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm mb-6">
-            <Star size={14} className="text-[#FFB800]" />
+            <Star size={14} className="text-[#F59E0B]" />
             Simple, transparent pricing
           </div>
           <h1 className="text-5xl font-bold text-white mb-4">Plans for Every Shopper</h1>
@@ -110,13 +110,13 @@ export default function PricingPage() {
           <div className="inline-flex items-center gap-3 bg-white/10 rounded-2xl p-1.5">
             <button
               onClick={() => setAnnual(false)}
-              className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${!annual ? 'bg-white text-[#0F172A]' : 'text-white/70 hover:text-white'}`}
+              className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${!annual ? 'bg-white text-[#0A1628]' : 'text-white/70 hover:text-white'}`}
             >
               Monthly
             </button>
             <button
               onClick={() => setAnnual(true)}
-              className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 ${annual ? 'bg-white text-[#0F172A]' : 'text-white/70 hover:text-white'}`}
+              className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 ${annual ? 'bg-white text-[#0A1628]' : 'text-white/70 hover:text-white'}`}
             >
               Annual
               <span className="bg-emerald-500 text-white text-xs px-2 py-0.5 rounded-full">Save 20%</span>
@@ -137,7 +137,7 @@ export default function PricingPage() {
               className={`relative bg-white rounded-3xl border-2 ${plan.border} shadow-sm overflow-hidden ${plan.popular ? 'shadow-xl scale-[1.03]' : ''}`}
             >
               {plan.popular && (
-                <div className="bg-[#0057FF] text-white text-xs font-bold text-center py-2 tracking-wider uppercase">
+                <div className="bg-[#1B4FD8] text-white text-xs font-bold text-center py-2 tracking-wider uppercase">
                   Most Popular
                 </div>
               )}
@@ -146,13 +146,13 @@ export default function PricingPage() {
                 <div className={`w-12 h-12 ${plan.bg} rounded-2xl flex items-center justify-center ${plan.color} mb-4`}>
                   {plan.icon}
                 </div>
-                <h3 className="text-xl font-bold text-[#0F172A] mb-1">{plan.name}</h3>
+                <h3 className="text-xl font-bold text-[#0A1628] mb-1">{plan.name}</h3>
                 <p className="text-slate-500 text-sm mb-5">{plan.description}</p>
 
                 {/* Price */}
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-[#0F172A]">
+                    <span className="text-4xl font-bold text-[#0A1628]">
                       ${annual ? plan.annualPrice : plan.monthlyPrice}
                     </span>
                     {plan.monthlyPrice > 0 && (
@@ -194,9 +194,9 @@ export default function PricingPage() {
         {/* Trust row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-14 mb-16">
           {[
-            { icon: <Shield size={22} className="text-[#0057FF]" />, title: '30-Day Free Trial', desc: 'Try Premium risk-free, no credit card required.' },
+            { icon: <Shield size={22} className="text-[#1B4FD8]" />, title: '30-Day Free Trial', desc: 'Try Premium risk-free, no credit card required.' },
             { icon: <Truck size={22} className="text-[#10B981]" />, title: 'Ships to 220+ Countries', desc: 'Every plan supports all our international destinations.' },
-            { icon: <Star size={22} className="text-[#FFB800]" />, title: '500,000+ Members', desc: 'Join shoppers from every corner of the world.' },
+            { icon: <Star size={22} className="text-[#F59E0B]" />, title: '500,000+ Members', desc: 'Join shoppers from every corner of the world.' },
           ].map((item) => (
             <div key={item.title} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex items-start gap-4">
               <div className="bg-slate-50 rounded-xl p-2.5 flex-shrink-0">{item.icon}</div>
@@ -210,7 +210,7 @@ export default function PricingPage() {
 
         {/* FAQ */}
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-[#0F172A] text-center mb-8">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-bold text-[#0A1628] text-center mb-8">Frequently Asked Questions</h2>
           <div className="space-y-3">
             {FAQS.map((faq, i) => (
               <motion.div
@@ -222,7 +222,7 @@ export default function PricingPage() {
                   className="w-full flex items-center justify-between p-5 text-left"
                 >
                   <span className="font-semibold text-slate-900 text-sm">{faq.q}</span>
-                  <span className={`text-[#0057FF] transition-transform ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
+                  <span className={`text-[#1B4FD8] transition-transform ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
                 </button>
                 {openFaq === i && (
                   <motion.div

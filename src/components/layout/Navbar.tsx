@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -92,21 +92,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top bar */}
-      <div className="bg-[#0057FF] text-white text-xs py-2 hidden md:block">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5"><Globe size={12} /> Ship to 220+ countries</span>
-            <span className="flex items-center gap-1.5"><Zap size={12} /> Free US address included</span>
-            <span className="flex items-center gap-1.5"><Shield size={12} /> Secure & insured shipping</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <Link to="/support" className="hover:text-blue-200 transition-colors">Help Center</Link>
-            <Link to="/track" className="hover:text-blue-200 transition-colors">Track Package</Link>
-          </div>
-        </div>
-      </div>
-
       {/* Main navbar */}
       <nav className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled ? 'glass shadow-lg' : 'bg-white/95 backdrop-blur-sm'
@@ -119,14 +104,14 @@ export default function Navbar() {
                 <Package size={20} className="text-white" />
               </div>
               <div>
-                <span className="text-xl font-bold text-[#0F172A]">MyUS</span>
-                <span className="text-xl font-bold gradient-text"> Shopping</span>
+                <span className="text-xl font-bold text-[#0A1628]">Shoppers</span>
+                <span className="text-xl font-bold gradient-text"> Crown</span>
               </div>
             </Link>
 
             {/* Desktop nav */}
             <div className="hidden lg:flex items-center gap-1">
-              {NAV_ITEMS.map((item) => (
+              {!user && NAV_ITEMS.map((item) => (
                 <div
                   key={item.label}
                   className="relative"
@@ -137,7 +122,7 @@ export default function Navbar() {
                     to={item.href}
                     className={`flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                       location.pathname === item.href
-                        ? 'text-[#0057FF] bg-blue-50'
+                        ? 'text-[#1B4FD8] bg-blue-50'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                     }`}
                   >
@@ -163,9 +148,9 @@ export default function Navbar() {
                                 <Link
                                   key={sub.label}
                                   to={sub.href}
-                                  className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-[#0057FF] hover:bg-blue-50 transition-all duration-150"
+                                  className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-[#1B4FD8] hover:bg-blue-50 transition-all duration-150"
                                 >
-                                  {sub.icon && <span className="text-[#0057FF]">{sub.icon}</span>}
+                                  {sub.icon && <span className="text-[#1B4FD8]">{sub.icon}</span>}
                                   {sub.label}
                                 </Link>
                               ))}
@@ -205,7 +190,7 @@ export default function Navbar() {
               >
                 <ShoppingCart size={20} />
                 {cartCount > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-[#0057FF] text-white text-xs rounded-full flex items-center justify-center font-bold">
+                  <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-[#1B4FD8] text-white text-xs rounded-full flex items-center justify-center font-bold">
                     {cartCount}
                   </span>
                 )}
@@ -237,6 +222,7 @@ export default function Navbar() {
                 {mobileOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
+
           </div>
         </div>
 
@@ -250,11 +236,11 @@ export default function Navbar() {
               className="lg:hidden border-t border-slate-100 bg-white"
             >
               <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
-                {NAV_ITEMS.map((item) => (
+                {!user && NAV_ITEMS.map((item) => (
                   <Link
                     key={item.label}
                     to={item.href}
-                    className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-slate-600 hover:text-[#0057FF] hover:bg-blue-50 transition-all"
+                    className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-slate-600 hover:text-[#1B4FD8] hover:bg-blue-50 transition-all"
                   >
                     {item.label}
                   </Link>
@@ -308,7 +294,7 @@ export default function Navbar() {
                 <div className="flex flex-wrap gap-2">
                   {['iPhone 15', 'Nike Air Max', 'MacBook Pro', 'Sony Headphones', 'Dyson Vacuum'].map((term) => (
                     <button key={term} onClick={() => { setSearchOpen(false); navigate(`/shop?q=${encodeURIComponent(term)}`); setSearchQuery('') }}
-                      className="px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 text-sm hover:bg-blue-50 hover:text-[#0057FF] transition-colors">
+                      className="px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 text-sm hover:bg-blue-50 hover:text-[#1B4FD8] transition-colors">
                       {term}
                     </button>
                   ))}

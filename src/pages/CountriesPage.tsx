@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Search, Globe, Truck, Clock, Star } from 'lucide-react'
 import { COUNTRIES } from '@/data/mockData'
@@ -40,7 +40,7 @@ export default function CountriesPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-[#0057FF] to-[#00C2FF] py-16 text-center px-4">
+      <div className="bg-gradient-to-br from-[#1B4FD8] to-[#38BDF8] py-16 text-center px-4">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm mb-5">
             <Globe size={14} /> International Shipping
@@ -63,9 +63,9 @@ export default function CountriesPage() {
         {/* Stats row */}
         <div className="grid grid-cols-3 gap-5 mb-10">
           {[
-            { icon: <Globe size={22} className="text-[#0057FF]" />, bg: 'bg-blue-50', label: '220+ Countries', sub: 'Global reach' },
+            { icon: <Globe size={22} className="text-[#1B4FD8]" />, bg: 'bg-blue-50', label: '220+ Countries', sub: 'Global reach' },
             { icon: <Truck size={22} className="text-[#10B981]" />, bg: 'bg-emerald-50', label: '3–20 Day Delivery', sub: 'Multiple speed options' },
-            { icon: <Star size={22} className="text-[#FFB800]" />, bg: 'bg-amber-50', label: 'Up to 82% Off', sub: 'vs. standard retail rates' },
+            { icon: <Star size={22} className="text-[#F59E0B]" />, bg: 'bg-amber-50', label: 'Up to 82% Off', sub: 'vs. standard retail rates' },
           ].map((s) => (
             <div key={s.label} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 flex items-center gap-4">
               <div className={`w-11 h-11 ${s.bg} rounded-xl flex items-center justify-center flex-shrink-0`}>{s.icon}</div>
@@ -76,10 +76,10 @@ export default function CountriesPage() {
 
         {/* Filter */}
         <div className="flex items-center gap-3 mb-6">
-          <button onClick={() => setView('all')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${view === 'all' ? 'bg-[#0057FF] text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-[#0057FF]'}`}>
+          <button onClick={() => setView('all')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${view === 'all' ? 'bg-[#1B4FD8] text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-[#1B4FD8]'}`}>
             All Countries ({ALL_COUNTRIES.length})
           </button>
-          <button onClick={() => setView('popular')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${view === 'popular' ? 'bg-[#0057FF] text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-[#0057FF]'}`}>
+          <button onClick={() => setView('popular')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${view === 'popular' ? 'bg-[#1B4FD8] text-white' : 'bg-white border border-slate-200 text-slate-600 hover:border-[#1B4FD8]'}`}>
             Most Popular
           </button>
         </div>
@@ -106,12 +106,12 @@ export default function CountriesPage() {
                     <p className="font-semibold text-slate-900 text-sm">{c.name}</p>
                     <p className="text-slate-400 text-xs">{c.code}</p>
                   </div>
-                  {c.popular && <span className="bg-blue-50 text-[#0057FF] text-xs px-2 py-0.5 rounded-full font-medium">Popular</span>}
+                  {c.popular && <span className="bg-blue-50 text-[#1B4FD8] text-xs px-2 py-0.5 rounded-full font-medium">Popular</span>}
                 </div>
                 <p className="font-semibold text-slate-900 text-sm">From {formatCurrency(c.shippingRate)}</p>
                 <div className="flex items-center justify-between">
                   <p className="text-slate-600 text-sm">{c.deliveryDays} days</p>
-                  <Link to="/calculator" className="text-[#0057FF] text-xs font-medium hover:underline hidden sm:block">Calculate →</Link>
+                  <Link to="/calculator" className="text-[#1B4FD8] text-xs font-medium hover:underline hidden sm:block">Calculate →</Link>
                 </div>
               </motion.div>
             ))}
@@ -123,7 +123,7 @@ export default function CountriesPage() {
 
         <p className="text-center text-slate-400 text-sm mt-6">
           Don't see your country?{' '}
-          <Link to="/support" className="text-[#0057FF] hover:underline">Contact us</Link>
+          <Link to="/support" className="text-[#1B4FD8] hover:underline">Contact us</Link>
           {' '}— we're constantly expanding.
         </p>
       </div>
