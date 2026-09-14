@@ -21,7 +21,7 @@ import ShippingPage from '@/pages/ShippingPage'
 import ShippingCalculatorPage from '@/pages/ShippingCalculatorPage'
 import CountriesPage from '@/pages/CountriesPage'
 import InsurancePage from '@/pages/InsurancePage'
-import NotFoundPage from '@/pages/NotFoundPage'
+
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, staleTime: 5 * 60 * 1000 } },

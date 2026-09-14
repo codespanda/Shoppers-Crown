@@ -5,7 +5,7 @@ import {
   Package, Truck, MapPin, CreditCard, Bell, Settings, LogOut, ShoppingCart,
   TrendingUp, ShoppingBag, DollarSign, Star, ChevronRight,
   LayoutDashboard, FileText, HeadphonesIcon, Gift, Users,
-  CheckCircle2, Clock, AlertCircle, Plus, Copy, ExternalLink,
+  CheckCircle2, Plus, Copy, ExternalLink,
   Wallet, Receipt, Zap, Phone, Mail, MessageCircle, Search
 } from 'lucide-react'
 import { useForm } from 'react-hook-form'
