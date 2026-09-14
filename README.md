@@ -1,6 +1,6 @@
 # 👑 Shoppers Crown
 
-A modern international shopping & package forwarding platform built with React 19, TypeScript, Vite, and Tailwind CSS v4.
+A modern international shopping & package-forwarding platform built with **React 19**, **TypeScript**, **Vite 8**, and **Tailwind CSS v4**.
 
 > Shop from thousands of US stores and ship worldwide to 220+ countries.
 
@@ -9,44 +9,59 @@ A modern international shopping & package forwarding platform built with React 1
 ## 📸 Screenshots
 
 ### 🏠 Homepage
-![Homepage](./screenshots/homepage.png)
+![Homepage Hero](./screenshots/homepage.png)
 
-### 🛍️ Shop
+### 🛍️ Shop — Product Listing
 ![Shop Page](./screenshots/shop.png)
 
-### 📊 Dashboard
-![Dashboard](./screenshots/dashboard.png)
+### 📊 Dashboard — Overview
+![Dashboard Overview](./screenshots/dashboard.png)
 
-### 💎 Pricing
-![Pricing Page](./screenshots/pricing.png)
+### ⚙️ Dashboard — Settings
+![Dashboard Settings](./screenshots/dashboard-settings.png)
+
+### 💎 Pricing Plans
+![Pricing](./screenshots/pricing.png)
+
+### 📦 Package Tracking
+![Tracking](./screenshots/tracking.png)
+
+### 🔐 Login
+![Login](./screenshots/login.png)
+
+### 📝 Sign Up
+![Sign Up](./screenshots/signup.png)
 
 ---
 
 ## ✨ Features
 
-- **Free US Address** — Get a personal US shipping address instantly
-- **220+ Countries** — Ship packages worldwide at discounted rates
-- **Package Consolidation** — Combine multiple packages into one shipment
-- **Real-time Tracking** — Track every package from warehouse to door
-- **Premium Dashboard** — Manage orders, shipments, invoices & rewards
-- **Shipping Calculator** — Instant rate estimates before you buy
-- **Phone Masking** — Privacy-first contact display
-- **Responsive Design** — Fully mobile-friendly
+- **Free US Address** — Instant personal US shipping address on signup
+- **220+ Countries** — Ship worldwide at deeply discounted carrier rates
+- **Package Consolidation** — Combine multiple orders into one shipment
+- **Real-time Tracking** — End-to-end tracking from warehouse to door
+- **Premium Dashboard** — Manage orders, shipments, invoices, rewards & referrals
+- **Shipping Calculator** — Instant cost estimates before you buy
+- **Phone Number Masking** — Privacy-first contact display throughout the app
+- **Masked Settings Fields** — Sensitive data hidden at rest, revealed on focus
+- **404 → Home Redirect** — All unknown routes redirect to homepage
+- **Responsive Design** — Fully mobile-friendly at all breakpoints
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Version |
-|---|---|
-| React | 19 |
-| TypeScript | 5 |
-| Vite | 8 |
-| Tailwind CSS | 4 |
-| React Router | 7 |
-| Framer Motion | 11 |
-| Lucide Icons | latest |
-| React Hook Form | latest |
+| Technology | Version | Purpose |
+|---|---|---|
+| React | 19 | UI framework |
+| TypeScript | 6 | Type safety |
+| Vite | 8 | Build tool & dev server |
+| Tailwind CSS | 4 | Utility-first styling |
+| React Router | 7 | Client-side routing |
+| Framer Motion | 12 | Animations & transitions |
+| React Hook Form | 7 | Form state management |
+| TanStack Query | 5 | Server state & caching |
+| Lucide Icons | latest | Icon library |
 
 ---
 
@@ -55,19 +70,14 @@ A modern international shopping & package forwarding platform built with React 1
 ### Prerequisites
 
 - Node.js 18+
-- npm or yarn
+- npm
 
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/codespanda/myus-shopping.git
+git clone https://github.com/codespanda/Shoppers-Crown.git
 cd shoppers-crown
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 
@@ -87,17 +97,18 @@ npm run preview
 ```
 shoppers-crown/
 ├── public/
-├── screenshots/          # App screenshots
+│   └── favicon.svg
+├── screenshots/              # App screenshots for README
 ├── src/
 │   ├── components/
-│   │   ├── layout/       # Navbar, Footer, Layout
-│   │   ├── sections/     # Hero, FeaturedProducts, etc.
-│   │   └── ui/           # Reusable UI components
-│   ├── context/          # AuthContext, CartContext, ThemeContext
-│   ├── data/             # mockData (products, brands, etc.)
-│   ├── lib/              # Utility functions
-│   ├── pages/            # All route pages
-│   └── types/            # TypeScript interfaces
+│   │   ├── layout/           # Navbar, Footer, Layout
+│   │   ├── sections/         # Hero, FeaturedProducts, FAQ, CTA…
+│   │   └── ui/               # Button, Input, Badge…
+│   ├── context/              # AuthContext, CartContext, ThemeContext
+│   ├── data/                 # mockData (products, brands, orders…)
+│   ├── lib/                  # Utility helpers
+│   ├── pages/                # Route-level page components
+│   └── types/                # TypeScript interfaces
 ├── index.html
 ├── package.json
 └── vite.config.ts
@@ -107,7 +118,7 @@ shoppers-crown/
 
 ## 🔑 Demo Login
 
-Use any email and any password (6+ characters) to sign in and explore the dashboard.
+Use **any email** and **any password (6+ characters)** to sign in and explore the full dashboard.
 
 ---
 
