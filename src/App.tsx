@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { AuthProvider } from '@/context/AuthContext'
 import { CartProvider } from '@/context/CartContext'
@@ -57,7 +57,7 @@ export default function App() {
                   <Route path="categories" element={<ShopPage />} />
                   <Route path="deals" element={<ShopPage />} />
                   <Route path="notifications" element={<DashboardPage />} />
-                  <Route path="*" element={<NotFoundPage />} />
+                  <Route path="*" element={<Navigate to="/" replace />} />
                 </Route>
               </Routes>
             </BrowserRouter>

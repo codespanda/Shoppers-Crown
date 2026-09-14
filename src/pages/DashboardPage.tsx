@@ -717,9 +717,22 @@ function SupportTab() {
   )
 }
 
+function maskPhone(phone: string): string {
+  // Keep country code + last 4 digits, mask middle
+  const digits = phone.replace(/\D/g, '')
+  if (digits.length < 7) return phone
+  const last4 = digits.slice(-4)
+  const countryCode = phone.match(/^\+\d+/)?.[0] ?? ''
+  return `${countryCode} (***) ***-${last4}`
+}
+
 function SettingsTab({ user }: { user: NonNullable<ReturnType<typeof useAuth>['user']> }) {
   const [saved, setSaved] = useState(false)
-  const { register, handleSubmit, formState: { isSubmitting } } = useForm({ defaultValues: { name: user.name, email: user.email } })
+  const [phoneFocused, setPhoneFocused] = useState(false)
+  const { register, handleSubmit, formState: { isSubmitting }, watch } = useForm({
+    defaultValues: { name: user.name, email: user.email, phone: user.phone ?? '', country: user.country }
+  })
+  const phoneValue = watch('phone')
   const onSubmit = async () => { await new Promise(r => setTimeout(r, 800)); setSaved(true); setTimeout(() => setSaved(false), 2500) }
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="max-w-xl">
@@ -747,7 +760,33 @@ function SettingsTab({ user }: { user: NonNullable<ReturnType<typeof useAuth>['u
             <Input label="Full Name" {...register('name')} />
             <Input label="Email" type="email" {...register('email')} />
           </div>
-          <Input label="Phone Number" placeholder="+1 (555) 000-0000" {...register('phone')} />
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1.5">Phone Number</label>
+            <div className="relative">
+              {/* Real input — always mounted so RHF tracks value */}
+              <input
+                type="text"
+                className={`w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8] bg-white pr-20 ${phoneFocused ? '' : 'opacity-0 absolute inset-0 pointer-events-none'}`}
+                placeholder="+1 (555) 000-0000"
+                onFocus={() => setPhoneFocused(true)}
+                {...register('phone', { onBlur: () => setPhoneFocused(false) })}
+              />
+              {/* Masked display — shown when not focused */}
+              {!phoneFocused && (
+                <div
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-white pr-20 cursor-text text-slate-700"
+                  onClick={() => setPhoneFocused(true)}
+                >
+                  {phoneValue ? maskPhone(phoneValue) : <span className="text-slate-400">+1 (555) 000-0000</span>}
+                  {phoneValue && (
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full border border-slate-200 select-none">
+                      masked
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1.5">Default Country</label>
             <select className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-[#1B4FD8] bg-white" {...register('country')}>

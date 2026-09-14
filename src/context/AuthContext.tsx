@@ -5,6 +5,7 @@ const DEMO_USER: User = {
   id: '1',
   name: 'Alex Johnson',
   email: 'alex@example.com',
+  phone: '+1 (555) 867-5309',
   country: 'UAE',
   usAddress: '3450 NW 115th Ave, Suite 205, Portland, OR 97229',
   memberSince: '2023-01-15',

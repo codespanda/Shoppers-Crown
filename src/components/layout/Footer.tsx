@@ -83,9 +83,9 @@ export default function Footer() {
               <a href="mailto:support@Shoppers Crown.com" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
                 <Mail size={14} /> support@Shoppers Crown.com
               </a>
-              <a href="tel:+18005551234" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
-                <Phone size={14} /> +1 (800) 555-1234
-              </a>
+              <span className="flex items-center gap-2 text-sm">
+                <Phone size={14} /> +1 (***) ***-1234
+              </span>
               <span className="flex items-center gap-2 text-sm">
                 <Globe size={14} /> Portland, Oregon USA
               </span>
